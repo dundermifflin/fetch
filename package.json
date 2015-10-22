@@ -1,0 +1,34 @@
+{
+  "name": "fetch-app",
+  "version": "1.0.0",
+  "description": "Fetch: pet dogs on demand for a day",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dundermifflin/fetch.git"
+  },
+  "keywords": [
+    "dog",
+    "app",
+    "node",
+    "mean",
+    "express",
+    "angular",
+    "mongodb"
+  ],
+  "author": "DunderMifflin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dundermifflin/fetch/issues"
+  },
+  "homepage": "https://github.com/dundermifflin/fetch#readme",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0"
+  }
+}
