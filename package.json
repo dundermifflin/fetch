@@ -28,10 +28,12 @@
   "homepage": "https://github.com/dundermifflin/fetch#readme",
   "dependencies": {
     "angular": "^1.4.7",
+    "angular-router": "0.0.2",
+    "bootstrap": "^3.3.5",
     "express": "^4.13.3",
     "gulp": "^3.9.0"
   },
-    "engines": {
+  "engines": {
     "node": "0.12.7"
   }
 }
