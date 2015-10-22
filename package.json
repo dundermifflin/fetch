@@ -2,10 +2,10 @@
   "name": "fetch-app",
   "version": "1.0.0",
   "description": "Fetch: pet dogs on demand for a day",
-  "main": "server.js",
+  "main": "/app/server/server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "node /app/server.js"
   },
   "repository": {
     "type": "git",
