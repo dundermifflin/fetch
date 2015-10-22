@@ -1,0 +1,1 @@
+//use $routeProvider or $uiRoute to navigate templates
