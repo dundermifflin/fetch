@@ -1,40 +1,35 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['ui.router', 'fetch.login', 'fetch.selection', 'fetch.services', 'fetch.confirmation'])
+angular.module('fetch', ['fetch.auth', 'fetch.confirmation', 'fetch.selection','fetch.services', 'ui.router'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/signin');
 
   $stateProvider
 
-    .state('/login', {
-    url: '/login',
-    controller: 'authController',
-    templateUrl: 'login.html'
+    .state('/signin', {
+    url: '/signin',
+    controller: 'AuthController',
+    templateUrl: 'authorization/signin.html'
   })
 
   .state('/logout', {
-    url: '/login',
-    controller: 'authController',
-    templateUrl: 'login.html'
+    url: '/signin',
+    controller: 'AuthController',
+    templateUrl: 'authorization/signin.html'
   })
 
   .state('/selection', {
     url: '/selection',
-    controller: 'selectionController',
-    templateUrl: 'selection.html'
+    controller: 'SelectionController',
+    templateUrl: 'selection/selection.html'
   })
 
   .state('/confirmation', {
       url: '/confirmation',
-      controller: 'confirmationController',
-      templateUrl: 'confirmation.html'
-    })
-    .otherwise({
-      url: '/login',
-      controller: 'authController',
-      templateUrl: 'login.html'
-
+      controller: 'ConfirmationController',
+      templateUrl: 'confirmation/confirmation.html'
     });
-});
+  
+}]);
