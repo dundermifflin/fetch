@@ -27,7 +27,8 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
   })
 
   .state('confirmation', {
-      url: '/confirmation',
+      url: '/confirmation', //if this doesn't work, remove url line
+      params:['dog'], 
       controller: 'ConfirmationController',
       templateUrl: 'confirmation/confirmationView.html'
     });
