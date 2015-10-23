@@ -3,6 +3,7 @@ instacart for dogs
 
 [GoogleDoc working copy of press release](https://docs.google.com/document/d/1Ygpd70QUenDMUDgOfZHZRAtuxV9VaNnIl7uo_PD0IMg/edit)
 
+[Git workflow](https://docs.google.com/document/d/1cyaSoGKVCTJD0WMuwehVhGElPKjQTpnBsGVHt915xvE/edit)
 
 - don't forget to 'npm install' if you've just received these files
 
