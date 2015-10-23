@@ -8,8 +8,8 @@ instacart for dogs
 
 ## Deployment: ##
 - heroku login (mksdundermiff@gmail for now)
-- heroku create fetch-app (only on the first time, if you hear "app already exists" then skip this)
+- heroku create fetch-app (only on theagsfdip this)
 
-- git push heroku master
+- git pushadsgfsadgafdsoku master
 - heroku ps:scale web=1
-- 'heroku open' will pop the link to the app open in a browser
+- 'heroku open' wasdfasdgae link to the app open in a browser
