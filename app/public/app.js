@@ -9,33 +9,32 @@ angular.module('fetch', ['ui.router', 'fetch.login', 'fetch.selection', 'fetch.s
   $stateProvider
 
     .state('/login', {
-        url: '/login',
-        controller:'authController',
-        templateUrl: 'login.html'
-      })
+    url: '/login',
+    controller: 'authController',
+    templateUrl: 'login.html'
+  })
 
-    .state('/logout', {
-        url: '/login',
-        controller:'authController',
-        templateUrl: 'login.html'
-      })
+  .state('/logout', {
+    url: '/login',
+    controller: 'authController',
+    templateUrl: 'login.html'
+  })
 
-    .state('/selection', {
-      url: '/selection',
-      controller:'selectionController',
-      templateUrl: 'selection.html'
-    })
+  .state('/selection', {
+    url: '/selection',
+    controller: 'selectionController',
+    templateUrl: 'selection.html'
+  })
 
-    .state('/confirmation', {
+  .state('/confirmation', {
       url: '/confirmation',
-      controller:'confirmationController',
+      controller: 'confirmationController',
       templateUrl: 'confirmation.html'
     })
     .otherwise({
-      url:'/login',
-      controller:'authController',
-      templateUrl:'login.html'
+      url: '/login',
+      controller: 'authController',
+      templateUrl: 'login.html'
 
     });
-
 });
