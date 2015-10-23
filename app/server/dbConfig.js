@@ -2,7 +2,7 @@
 var bookshelf = require('bookshelf');
 var path = require('path');
 
-var db = Bookshelf.initialize({
+module.exports.db = Bookshelf.initialize({
   client: 'mysql',
   connection: {
     host: '127.0.0.1',
@@ -44,51 +44,31 @@ db.knex.schema.hasTable('dogs').then(function(exists) {
       dog.string('breed');
     })
   }
-})
+});
 
 db.knex.schema.hasTable('shelters').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('shelters', function(shelter) {
       shelter.increments('id').primary();
       shelter.integer('zip')
+      shelter.integer('name')
     })
   }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
 
 //BOOKSHELF MODEL COLLECTION ABSTRACTIONS BELOW:
 
-var Shelter, Dog, User;
-
-User = bookshelf.Model.extend({
+module.exports.User = bookshelf.Model.extend({
   tableName: 'users',
   dog: function() {
     return this.hasOne(Dog);
   }
 });
 
-Dog = bookshelf.Model.extend({
+module.exports.Dog = bookshelf.Model.extend({
   tableName: 'dogs',
   shelter: function() {
     return this.belongsTo(Shelter);
@@ -98,7 +78,7 @@ Dog = bookshelf.Model.extend({
   }
 });
 
-Shelter = bookshelf.Model.extend({
+module.exports.Shelter = bookshelf.Model.extend({
   tableName: 'shelters',
   dog: function() {
     return this.hasMany(Dog);
