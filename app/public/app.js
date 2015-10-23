@@ -8,25 +8,25 @@ angular.module('fetch', ['fetch.auth', 'fetch.confirmation', 'fetch.selection','
 
   $stateProvider
 
-    .state('/signin', {
+    .state('signin', {
     url: '/signin',
     controller: 'AuthController',
     templateUrl: 'authorization/signin.html'
   })
 
-  .state('/logout', {
+  .state('logout', {
     url: '/signin',
     controller: 'AuthController',
     templateUrl: 'authorization/signin.html'
   })
 
-  .state('/selection', {
+  .state('selection', {
     url: '/selection',
     controller: 'SelectionController',
     templateUrl: 'selection/selection.html'
   })
 
-  .state('/confirmation', {
+  .state('confirmation', {
       url: '/confirmation',
       controller: 'ConfirmationController',
       templateUrl: 'confirmation/confirmation.html'

@@ -14,4 +14,3 @@ instacart for dogs
 - git pushadsgfsadgafdsoku master
 - heroku ps:scale web=1
 - 'heroku open' will pop the link to the app open in a browser
-

@@ -11,9 +11,9 @@ app.use(express.static(__dirname + '/node_modules'));
 // app.set('view engine', 'ejs');
 
 
- app.get('*', function(req, res) {
-            res.sendFile(__dirname + '/app/public/index.html'); // load our public/index.html file
-        });
+ // app.get('*', function(req, res) {
+ //            res.sendFile(__dirname + '/app/public/index.html'); // load our public/index.html file
+ //        });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
