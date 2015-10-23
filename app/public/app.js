@@ -1,6 +1,6 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['fetch.auth', 'fetch.confirmation', 'fetch.selection', 'ui.router'])
+angular.module('fetch', ['fetch.auth', 'fetch.confirmation', 'fetch.selection','fetch.services', 'ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 
