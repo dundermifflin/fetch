@@ -4,6 +4,7 @@ angular.module('fetch.selection', [])
   $scope.data = {};
 
   $scope.processSelection = function(typeSelected) {
+  	console.log('in process selection hurray')
     //send type selected to DogFactory to process query in server
     DogFactory.processSelection(typeSelected).then(function(err, response) {
       if (err) {

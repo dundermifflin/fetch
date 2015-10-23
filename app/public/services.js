@@ -2,6 +2,7 @@ angular.module('fetch.services', [])
 
 .factory('DogFactory', function($http) {
       var processSelection = function(input) {
+        console.log('in dog factory processSelection')
         return $http({
           method: 'POST',
           url: '/processSelection',
