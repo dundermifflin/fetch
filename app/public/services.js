@@ -1,61 +1,57 @@
-angular.module('fetch.services',[])
+angular.module('fetch.services', [])
 
-.factory('DogFactory', function() {
-  var fb = new Firebase('http://fetchadog.firebaseIO.com');
+.factory('DogFactory', function($http) {
+      var processSelection = function(input) {
+        return $http({
+          method: 'POST',
+          url: '/processSelection',
+          data: {
+            type: input
+          }
+        });
 
-  var findDog = function(input) {
-    var result = $firebase(fb.orderByValue('type').equalTo(input)).$asArray();
+        var toggleAvail = function() {
 
-    var dogArray = result.$loaded().then(function() {
-      result.forEach(function(val) {
-        if (val.avail === true) {
-          return val;
-        }
-      });
-      return false;
-    });
-  };
+        };
 
-  var toggleAvail = function() {
+        return {
+          processSelection: processSelection
+        };
+      })
 
-  };
+    //  ADDED AuthFactory:  FILL ME IN!!!
+    .factory('AuthorizationFactory', ['$http', function($http) {
+      var signin = function(user) {
+        return $http({
+            method: 'POST',
+            url: '',
+            data: user
+          })
+          .then(function(resp) {
 
-  return { findDog: findDog };
-})
+          });
+      };
 
-//  ADDED AuthFactory:  FILL ME IN!!!
-.factory('AuthorizationFactory', ['$http',function ($http) {
-  var signin = function (user) {
-    return $http({
-      method: 'POST',
-      url: '',
-      data: user
-    })
-    .then(function (resp) {
-      
-    });
-  };
+      var signup = function(user) {
+        return $http({
+            method: 'POST',
+            url: '',
+            data: user
+          })
+          .then(function(resp) {
 
-  var signup = function (user) {
-    return $http({
-      method: 'POST',
-      url: '',
-      data: user
-    })
-    .then(function (resp) {
+          });
+      };
 
-    });
-  };
+      var signout = function() {
 
-  var signout = function () {
-   
-  };
+      };
 
 
-  return {
-    signin: signin,
-    signup: signup,
-    signout: signout
-  };
+      return {
+        signin: signin,
+        signup: signup,
+        signout: signout
+      };
 
-}]);
+    }]);
