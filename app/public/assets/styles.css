@@ -1,5 +1,5 @@
 .main{
-	background-image: url('https://newevolutiondesigns.com/images/freebies/dog-wallpaper-12.jpg');
+	background-color: grey;
 	background-size: 100%;
 	color: white;
 
@@ -29,4 +29,7 @@ h3{
 
 h1 #loginSlogan{
 	color: white;
+}
+.spacing{
+	padding: 5px;
 }
