@@ -1,4 +1,4 @@
-angular.module('fetch.services', [])
+angular.module('fetch.services',[])
 
 .factory('DogFactory', function() {
   var fb = new Firebase('http://fetchadog.firebaseIO.com');

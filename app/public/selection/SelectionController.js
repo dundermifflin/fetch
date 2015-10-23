@@ -1,4 +1,5 @@
-angular.module('fetch.selection')
+
+angular.module('fetch.selection', [])
   .controller('SelectionController', ['$scope', '$state', function($scope, $state ) {
 
     $scope.changeView = function(typeSelected) {

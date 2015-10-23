@@ -1,13 +1,32 @@
 .main{
 	background-image: url('https://newevolutiondesigns.com/images/freebies/dog-wallpaper-12.jpg');
-	background-size: 100%
+	background-size: 100%;
+	color: white;
 
-};
+}
 
-a .brand{
-	font-family: 'Leckerli One';
-};
+.fetch-col{
+ background-color: rgba(255, 255, 255, 0.6);
+ padding: 5px;
+ position: relative;
+ top: 200px;
+}
 
-i{
+h3{
+	color: black;
+	font-family: 'News Cycle', sans-serif;
+	position: center;
+}
+.paw{
 	margin-top: 30px;
-};
+}
+
+.text{
+	background-color:black;
+	width: 700px;
+	opacity: .4;
+}
+
+h1 #loginSlogan{
+	color: white;
+}
