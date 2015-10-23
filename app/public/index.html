@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html ng-app='fetch'>
+<html ng-app="fetch">
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="assets/styles.css">
-	<script src="../../node_modules/angular/angular.min.js"></script>
-	<script src="../../node_modules/angular-ui-router/build/angular-ui-router.min.js"></script>
+	<link rel="stylesheet" href="/assets/styles.css">
+	<script src="/angular/angular.js"></script>
+	<script src="/angular-ui-router/build/angular-ui-router.js"></script>
+    <script type= "text/javascript" src="app.js"></script>
+   
 </head>
 <body class='main'>
 	<nav class="navbar navbar-default navbar-static-top">
 		<a class="navbar-brand brand" id= "brand" href="#">Fetch</a>
-		<i class="fa fa-paw fa-2x"></i>
-	</nav>    
-	<div ng-view></div>
+		<span class = "paw"><i class="fa fa-paw fa-2x"></i></span>
+			</nav>    
+	<div ui-view></div>
 </body>
-<script type= 'text/javascript' src="./authorization/signIn.html"> </script>
-<script type= 'text/javascript' src="./confirmation/confirmationView.html"> </script>
-<script type= 'text/javascript' src="./selection/selectionView.html"> </script>
+<script type= "text/javascript" src="./authorization/authController.js"></script>
+<script type= "text/javascript" src="./confirmation/confirmationController.js"></script>
+<script type= "text/javascript" src="./selection/selectionController.js"></script>
+
 </html>

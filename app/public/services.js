@@ -17,7 +17,7 @@ angular.module('fetch.services', [])
   }
 
   var toggleAvail= function(){
-/
+
   }
 
   return { findDog: findDog };
