@@ -1,0 +1,29 @@
+{
+  "name": "fetch-app",
+  "description": "Fetch: pet dogs on demand for a day",
+  "main": "/app/server/server.js",
+  "authors": [
+    "DunderMifflin"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dog",
+    "app",
+    "node",
+    "mean",
+    "express",
+    "angular",
+    "mongodb"
+  ],
+  "homepage": "https://github.com/grooveIsAll/fetch",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
