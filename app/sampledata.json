@@ -3,56 +3,44 @@
 
 {"Dogs": [
   {
-    "Name": "Bone",
-    "ID": "1",
-    "Fam": "true",
-    "Fit": "true",
-    "Force": "true",
-    "Fun": "true",
-    "Shelter": "yolo spca",
-    "Available": "False",
-    "Zip": "95616",
-    "Blurb":"I like bones!",
-    "IsMale":"True"
+    "name": "Bone",
+    "id": 1,
+    "type": "force",
+    "shelter": "yolo spca",
+    "avail": false,
+    "zip": 95616,
+    "blurb": "I like bones!",
+    "isMale": true
   },
   {
-    "Name": "Leo",
-    "ID": "2",
-    "Fam": "true",
-    "Fit": "true",
-    "Force": "true",
-    "Fun": "false",
-    "Shelter": "marin humane society",
-    "Available": "False",
-    "Zip": "94949",
-    "Blurb":"Leo the Lion!",
-    "IsMale":"True"
+    "name": "Leo",
+    "id": 2,
+    "type": "fit",
+    "shelter": "marin humane society",
+    "avail": false,
+    "zip": 94949,
+    "blurb": "Leo the Lion!",
+    "isMale": true
   },
   {
-    "Name": "Spot",
-    "ID": "3",
-    "Fam": "false",
-    "Fit": "true",
-    "Force": "true",
-    "Fun": "false",
-    "Shelter": "san francisco spca",
-    "Available": "False",
-    "Zip": "11111",
-    "Blurb":"I have spots!",
-    "IsMale":"False"
+    "name": "Spot",
+    "id": 3,
+    "type": "family",
+    "shelter": "san francisco spca",
+    "avail": false,
+    "zip": 11111,
+    "blurb": "I have spots!",
+    "isMale": false
   },
   {
-    "Name": "Hugh",
-    "ID": "4",
-    "Fam": "true",
-    "Fit": "false",
-    "Force": "false",
-    "Fun": "true",
-    "Shelter": "solano spca",
-    "Available": "true",
-    "Zip": "11111",
-    "Blurb":"I'm huge!",
-    "IsMale":"true"
+    "name": "Hugh",
+    "id": 4,
+    "type": "fun",
+    "shelter": "solano spca",
+    "avail": true,
+    "zip": 11111,
+    "blurb": "I'm huge!",
+    "isMale": true
   }
 
 ]}
