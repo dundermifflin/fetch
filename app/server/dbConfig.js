@@ -17,25 +17,44 @@ db.knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     db.knex.schema.createTable('users', function(user) {
       user.increments('id').primary();
+      user.string('name');
       user.string('password');
-      user.
-      // how do we add a foriegn key in this here table def?
+      user.integer('zip');
+      user.binary('hasDog');
     })
   }
 });
 
 db.knex.schema.hasTable('dogs').then(function(exists) {
   if (!exists) {
-    db.knex.schema.createTable('dogs', function(user) {
-      user.increments('id').primary();
-      user.integer('userId')
+    db.knex.schema.createTable('dogs', function(dog) {
+      dog.increments('id').primary();
+      dog.integer('userId')
         .unsigned()
         .references('id')
-        .inTable('')
-      // how do we add a foriegn key in this here table def?
+        .inTable('users');
+      dog.integer('shelterId')
+        .unsigned()
+        .references('id')
+        .inTable('shelters');
+      dog.binary('isMale');
+      dog.string('blurb');
+      dog.string('activity');
+      dog.string('photoUrl');
+      dog.string('breed');
     })
   }
 })
+
+db.knex.schema.hasTable('shelters').then(function(exists) {
+  if (!exists) {
+    db.knex.schema.createTable('shelters', function(shelter) {
+      shelter.increments('id').primary();
+      shelter.integer('zip')
+    })
+  }
+})
+
 
 
 
