@@ -14,11 +14,48 @@ angular.module('fetch.services', [])
       });
       return false;
     });
-  }
+  };
 
-  var toggleAvail= function(){
-/
-  }
+  var toggleAvail = function() {
+
+  };
 
   return { findDog: findDog };
-});
+})
+
+//  ADDED AuthFactory:  FILL ME IN!!!
+.factory('AuthorizationFactory', ['$http',function ($http) {
+  var signin = function (user) {
+    return $http({
+      method: 'POST',
+      url: '',
+      data: user
+    })
+    .then(function (resp) {
+      
+    });
+  };
+
+  var signup = function (user) {
+    return $http({
+      method: 'POST',
+      url: '',
+      data: user
+    })
+    .then(function (resp) {
+
+    });
+  };
+
+  var signout = function () {
+   
+  };
+
+
+  return {
+    signin: signin,
+    signup: signup,
+    signout: signout
+  };
+
+}]);
