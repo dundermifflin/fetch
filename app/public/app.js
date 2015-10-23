@@ -1,6 +1,6 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['ui.router'])
+angular.module('fetch', ['ui.router', 'fetch.login', 'fetch.selection', 'fetch.services', 'fetch.confirmation'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -9,23 +9,32 @@ angular.module('fetch', ['ui.router'])
   $stateProvider
 
     .state('/login', {
-        url: '/login',
-        templateUrl: 'login.html'
-      })
+    url: '/login',
+    controller: 'authController',
+    templateUrl: 'login.html'
+  })
 
-    .state('/logout', {
-        url: '/login',
-        templateUrl: 'login.html'
-      })
+  .state('/logout', {
+    url: '/login',
+    controller: 'authController',
+    templateUrl: 'login.html'
+  })
 
-    .state('/selection', {
-      url: '/selection',
-      templateUrl: 'selection.html'
-    })
+  .state('/selection', {
+    url: '/selection',
+    controller: 'selectionController',
+    templateUrl: 'selection.html'
+  })
 
-    .state('/confirmation', {
+  .state('/confirmation', {
       url: '/confirmation',
+      controller: 'confirmationController',
       templateUrl: 'confirmation.html'
-    });
+    })
+    .otherwise({
+      url: '/login',
+      controller: 'authController',
+      templateUrl: 'login.html'
 
+    });
 });
