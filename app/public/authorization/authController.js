@@ -1,6 +1,6 @@
 // allows user to sign in and out
 	//triggers auth factory
-angular.module('fetch.login')
+angular.module('fetch.authorization', [])
 
 
   //  ADDED authorizationController: FILL ME IN!!!
