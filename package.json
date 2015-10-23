@@ -30,9 +30,15 @@
     "angular": "^1.4.7",
     "angular-router": "0.0.2",
     "angular-ui-router": "^0.2.15",
+    "bcrypt": "^0.8.5",
+    "bluebird": "^2.10.2",
+    "bookshelf": "^0.8.2",
     "bootstrap": "^3.3.5",
     "express": "^4.13.3",
-    "gulp": "^3.9.0"
+    "gulp": "^3.9.0",
+    "knex": "^0.8.6",
+    "path": "^0.12.7",
+    "sqlite3": "^3.1.0"
   },
   "engines": {
     "node": "0.12.7"
