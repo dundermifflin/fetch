@@ -9,6 +9,7 @@ angular.module('fetch.services', [])
             type: input
           }
         });
+      }
 
         var toggleAvail = function() {
 
