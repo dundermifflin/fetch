@@ -13,3 +13,5 @@ instacart for dogs
 - git push heroku master
 - heroku ps:scale web=1
 - 'heroku open' will pop the link to the app open in a browser
+
+SUCK IT
