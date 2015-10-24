@@ -10,7 +10,9 @@ angular.module('fetch.selection', [])
     $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
       console.log('selection response', response.data)
       $state.go('confirmation', {
-        dog: response.data
+        dog: JSON.stringify(response.data)
+      }, {
+        location: false
       });
     });
 

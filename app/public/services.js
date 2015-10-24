@@ -10,13 +10,14 @@ angular.module('fetch.services', [])
         type: input
       }
     }).then(function(response) {
+      toggleAvail(response);
       console.log('dogfactoryresponse', response);
       return response;
     });
   };
 
 
-  var toggleAvail = function() {
+  var toggleAvail = function(response) {
 
   };
 
