@@ -4,27 +4,31 @@ angular.module('fetch.authorization', [])
 
 
 //  ADDED authorizationController: FILL ME IN!!!
-.controller('AuthorizationController', ['$scope', function($scope) {
+.controller('AuthorizationController', ['$scope', '$state', function($scope, $state) {
   //$scope.user = {};
 
-  $scope.signin = function() {
-    AuthorizationFactory.signin()
-      .then(function(token) {
+  $scope.signIn = function() {
+    $state.go('selection')
+  }
 
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
-  };
 
-  $scope.signup = function() {
-    AuthorizationFactory.signup()
-      .then(function(token) {
+//     AuthorizationFactory.signin()
+//       .then(function(token) {
 
-      })
-      .catch(function(error) {
-        console.error(error);
-      });
-  };
+//       })
+//       .catch(function(error) {
+//         console.error(error);
+//       });
+//   };
+
+//   $scope.signup = function() {
+//     AuthorizationFactory.signup()
+//       .then(function(token) {
+
+//       })
+//       .catch(function(error) {
+//         console.error(error);
+//       });
+//   };
 
 }]);
