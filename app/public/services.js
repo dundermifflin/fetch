@@ -11,7 +11,6 @@ angular.module('fetch.services', [])
       }
     }).then(function(response) {
       toggleAvail(response);
-      console.log('dogfactoryresponse', response);
       return response;
     });
   };
@@ -25,6 +24,27 @@ angular.module('fetch.services', [])
     processSelection: processSelection
   };
 })
+
+.factory('ShelterFactory', ['$http', function($http) {
+
+  var addDog = function(dog) {
+    return $http({
+        method: 'POST',
+        url: '/addDog',
+        params: {
+        }
+      })
+      .then(function(resp) {
+
+      })
+  }
+
+
+
+  return {
+    addDog: addDog
+  }
+}])
 
 //  ADDED AuthFactory:  FILL ME IN!!!
 .factory('AuthorizationFactory', ['$http', '$state', function($http, $state) {
@@ -67,5 +87,6 @@ angular.module('fetch.services', [])
     register: register,
     logout: logout
   };
+
 
 }]);

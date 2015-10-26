@@ -24,6 +24,18 @@ app.use(session({secret: "This is a secret"}));
 //     blurb: "I love eating socks!!"
 //   };
 // }
+app.post('/addDog',function(req,res){
+  new Dog({
+    name: req.query.name,
+    activity: req.query.activity,
+    blurb: req.query.blurb,
+    avail: true,
+    breed: req.body.breed,
+    photoUrl: req.body.photoUrl
+  }).save().then(function(dog){
+    console.log('Successfully Saved' + dog.name)
+  })
+})
 
 app.post('/processSelection', function(req, res) {
   var activity = req.query.activity;
