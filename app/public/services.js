@@ -26,6 +26,19 @@ angular.module('fetch.services', [])
   };
 })
 
+.factory('ShelterFactory',function(){
+
+var addDog= function(){
+
+}
+
+
+
+  return {
+    addDog: addDog
+  }
+})
+
 //  ADDED AuthFactory:  FILL ME IN!!!
 .factory('AuthorizationFactory', ['$http', function($http) {
   var signin = function(user) {
