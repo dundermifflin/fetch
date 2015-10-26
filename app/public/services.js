@@ -11,7 +11,6 @@ angular.module('fetch.services', [])
       }
     }).then(function(response) {
       toggleAvail(response);
-      console.log('dogfactoryresponse', response);
       return response;
     });
   };
