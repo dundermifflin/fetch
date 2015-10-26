@@ -19,6 +19,8 @@ knex.schema.hasTable('users').then(function(exists) {
       user.string('password');
       user.integer('zip');
       user.binary('hasDog');
+    }).then(function(table){
+      console.log('made the user table', table);
     })
   }
 });
@@ -61,7 +63,7 @@ knex.schema.hasTable('shelters').then(function(exists) {
 
 var bookshelf = require('bookshelf')(knex)
 
-module.exports.User = bookshelf.Model.extend({
+var User = bookshelf.Model.extend({
   tableName: 'users',
   dog: function() {
     return this.hasOne(Dog);
@@ -84,3 +86,18 @@ module.exports.Shelter = bookshelf.Model.extend({
     return this.hasMany(Dog);
   }
 });
+
+new User ({
+	name: "Yusuf",
+	zip: 94903,
+	hasDog: false
+}).save();
+new User({name: "Yusuf"}).fetch().then(function(found){
+	if(found){
+		console.log('it works', found.attributes);
+	}
+})
+//  user.string('name');
+//       user.string('password');
+//       user.integer('zip');
+//       user.binary('hasDog');
