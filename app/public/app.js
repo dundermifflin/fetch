@@ -1,6 +1,6 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'ui.router'])
+angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'fetch.shelterDogs', 'ui.router'])
 
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -18,6 +18,12 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     url: '/login',
     controller: 'AuthorizationController',
     templateUrl: 'authorization/login.html'
+  })
+
+  .state('shelterdogs', {
+    url: '/shelterDogs',
+    controller: 'DogsController',
+    templateUrl: 'shelterDogs/shelterDogs.html'
   })
 
   .state('shelterLogin', {

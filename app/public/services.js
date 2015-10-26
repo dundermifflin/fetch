@@ -11,7 +11,6 @@ angular.module('fetch.services', [])
       }
     }).then(function(response) {
       toggleAvail(response);
-      console.log('dogfactoryresponse', response);
       return response;
     });
   };
@@ -32,7 +31,8 @@ angular.module('fetch.services', [])
     return $http({
         method: 'POST',
         url: '/addDog',
-        data: dog
+        params: {
+        }
       })
       .then(function(resp) {
 
