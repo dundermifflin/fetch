@@ -1,5 +1,8 @@
-angular.module('fetch.shelter', [])
+angular.module('fetch.shelter',[])
 
-.controller('Sheltercontroller', function($scope){
-	
+.controller('ShelterController', ['$scope','ShelterFactory'], function($scope, ShelterFactory){
+
+	$scope.addDog=function(dog){
+		return ShelterFactory.addDog(dog);
+	}
 })

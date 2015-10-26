@@ -26,10 +26,17 @@ angular.module('fetch.services', [])
   };
 })
 
-.factory('ShelterFactory',function(){
+.factory('ShelterFactory',['$http', function($http){
 
-var addDog= function(){
+var addDog= function(dog){
+  return $http({
+    method:'POST',
+    url: '/addDog',
+    data: dog
+  })
+  .then(function(resp){
 
+  })
 }
 
 
@@ -37,7 +44,7 @@ var addDog= function(){
   return {
     addDog: addDog
   }
-})
+}])
 
 //  ADDED AuthFactory:  FILL ME IN!!!
 .factory('AuthorizationFactory', ['$http', function($http) {
@@ -72,6 +79,6 @@ var addDog= function(){
     signin: signin,
     signup: signup,
     signout: signout
-  };
+  }
 
 }]);
