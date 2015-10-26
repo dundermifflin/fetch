@@ -4,7 +4,7 @@
         Userame
         <input type="text" ng-model="shelter.name" name="username" required="" />
         <br /> Password
-        <input name="password" id="password" type="password" title="Enter your password" required="">
+        <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required="">
         <br/>
         <div ng-show="form.$submitted || form.userame.$touched">
             <div ng-show="form.uName.$error.required">Please enter your username</div>
