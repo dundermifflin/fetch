@@ -26,18 +26,18 @@ angular.module('fetch.services', [])
   };
 })
 
-.factory('ShelterFactory',['$http', function($http){
+.factory('ShelterFactory', ['$http', function($http) {
 
-var addDog= function(dog){
-  return $http({
-    method:'POST',
-    url: '/addDog',
-    data: dog
-  })
-  .then(function(resp){
+  var addDog = function(dog) {
+    return $http({
+        method: 'POST',
+        url: '/addDog',
+        data: dog
+      })
+      .then(function(resp) {
 
-  })
-}
+      })
+  }
 
 
 
