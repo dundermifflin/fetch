@@ -1,39 +1,58 @@
-.main{
-	background-color: grey;
-	background-size: 100%;
-	color: black;
-
+.main {
+    background-color: white;
+    background-size: 100%;
+    color: #4C5FB2;
 }
 
-.fetch-col{
- background-color: rgba(255, 255, 255, 0.6);
- padding: 5px;
- position: relative;
- top: 200px;
+.btn.choose {
+    background-color: #4C5FB2;
+    height: 80px;
+    width: 150px;
+    color: white;
+    margin-left: 200px;
+    margin-top: 200px;
 }
 
-h3{
-	color: black;
-	font-family: 'News Cycle', sans-serif;
-	position: center;
-}
-.paw{
-	margin-top: 30px;
-}
-
-.text{
-	background-color:black;
-	width: 700px;
-	opacity: .4;
+#dogIndex {
+    height: 500px;
+    width: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
 }
 
-h1 #loginSlogan{
-	color: white;
-}
-.spacing{
-	padding: 5px;
+.fetch-col {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 5px;
+    position: relative;
+    top: 200px;
 }
 
-.dogPhoto{
-	width: 200px;
+h3 {
+    color: black;
+    font-family: 'News Cycle', sans-serif;
+    position: center;
+}
+
+.fa {
+    margin-top: 10px;
+}
+
+.text {
+    background-color: black;
+    width: 700px;
+    opacity: .4;
+}
+
+h1 #loginSlogan {
+    color: white;
+}
+
+.spacing {
+    padding: 5px;
+}
+
+.dogPhoto {
+    width: 200px;
 }
