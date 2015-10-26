@@ -92,34 +92,7 @@ var Shelter = bookshelf.Model.extend({
   }
 });
 
-new Dog({
-  isMale: 1,
-  name: "Snoop",
-  blurb: "puff puff pass baby",
-  activity: "smoke weed",
-  breed: "Ganja shepard"
-}).save()
 
-new Dog({
-  isMale: 1
-}).fetch().then(function(doggiedog){
-  console.log('success: ', doggiedog.attributes);
-});
-
-     // dog.increments('id').primary();
-     //  dog.integer('userId')
-     //    .unsigned()
-     //    .references('id')
-     //    .inTable('users');
-     //  dog.integer('shelterId')
-     //    .unsigned()
-     //    .references('id')
-     //    .inTable('shelters');
-     //  dog.binary('isMale');
-     //  dog.string('blurb');
-     //  dog.string('activity');
-     //  dog.string('photoUrl');
-     //  dog.string('breed');
 
 module.exports.User = User;
 module.exports.Dog = Dog;

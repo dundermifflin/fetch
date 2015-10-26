@@ -20,7 +20,11 @@ var sendMeData = function(query) {
 }
 
 app.post('/processSelection', function(req, res) {
-  res.send(sendMeData());
+  new Dog({
+    isMale: 1
+  }).fetch().then(function(doggiedog) {
+    res.send(doggiedog.attributes);
+  });
 });
 
 app.listen(app.get('port'), function() {
