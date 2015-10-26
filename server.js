@@ -10,20 +10,27 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/app/public'));
 app.use(express.static(__dirname + '/node_modules'));
 
-var sendMeData = function(query) {
-  return {
-    name: "Spot",
-    type: 'friend',
-    avail: true,
-    blurb: "I love eating socks!!"
-  };
-}
+// var sendMeData = function(query) {
+//   return {
+//     name: "Spot",
+//     type: 'friend',
+//     avail: true,
+//     blurb: "I love eating socks!!"
+//   };
+// }
 
 app.post('/processSelection', function(req, res) {
+  var activity= req.query.activity
   new Dog({
-    isMale: 1
-  }).fetch().then(function(doggiedog) {
-    res.send(doggiedog.attributes);
+    activity: activity,
+  }).fetch().then(function(found) {
+    console.log('in found')
+    if(found){
+      console.log(found);
+      res.send(found.attributes);
+    }else{
+      console.log('not found bro')
+    }
   });
 });
 

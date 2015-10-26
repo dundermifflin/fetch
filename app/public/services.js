@@ -6,8 +6,8 @@ angular.module('fetch.services', [])
     return $http({
       method: 'POST',
       url: '/processSelection',
-      data: {
-        type: input
+      params: {
+        activity: input
       }
     }).then(function(response) {
       toggleAvail(response);
