@@ -31,7 +31,8 @@ angular.module('fetch.services', [])
     return $http({
         method: 'POST',
         url: '/addDog',
-        data: dog
+        params: {
+        }
       })
       .then(function(resp) {
 
