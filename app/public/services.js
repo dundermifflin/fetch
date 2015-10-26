@@ -27,38 +27,45 @@ angular.module('fetch.services', [])
 })
 
 //  ADDED AuthFactory:  FILL ME IN!!!
-.factory('AuthorizationFactory', ['$http', function($http) {
-  var signin = function(user) {
+.factory('AuthorizationFactory', ['$http', '$state', function($http, $state) {
+  var login = function(user) {
     return $http({
         method: 'POST',
-        url: '',
-        data: user
+        url: '/login',
+        params: {
+          username: user.name,
+          password: user.password
+        }
       })
-      .then(function(resp) {
+      .then(function(response) {
 
       });
   };
 
-  var signup = function(user) {
+  var register = function(user) {
     return $http({
         method: 'POST',
-        url: '',
-        data: user
+        url: '/register',
+        params: {
+          name: user.name,
+          password: user.password
+        }
       })
-      .then(function(resp) {
-
+      .success(function(response) {
+        console.log('auth factory register response: ', response);
+        $state.go('selection');
       });
   };
 
-  var signout = function() {
+  var logout = function() {
 
   };
 
 
   return {
-    signin: signin,
-    signup: signup,
-    signout: signout
+    login: login,
+    register: register,
+    logout: logout
   };
 
 }]);
