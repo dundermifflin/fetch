@@ -20,15 +20,13 @@ app.use(express.static(__dirname + '/node_modules'));
 // }
 
 app.post('/processSelection', function(req, res) {
-  var activity= req.query.activity
+  var activity = req.query.activity
   new Dog({
     activity: activity,
   }).fetch().then(function(found) {
-    console.log('in found')
-    if(found){
-      console.log(found);
+    if (found) {
       res.send(found.attributes);
-    }else{
+    } else {
       console.log('not found bro')
     }
   });
