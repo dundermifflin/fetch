@@ -96,5 +96,3 @@ app.post('/signup', function(req, res) {
     res.redirect('/login');
   });
 
-});
-
