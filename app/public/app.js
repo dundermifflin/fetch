@@ -4,15 +4,27 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
 
 .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/chooseLogin');
 
   $stateProvider
+
+  .state('chooseLogin',{
+    url:'/chooseLogin',
+    controller: 'AuthorizationController',
+    templateUrl: 'authorization/chooseLogin.html'
+  })
 
     .state('login', {
     url: '/login',
     controller: 'AuthorizationController',
     templateUrl: 'authorization/login.html'
   })
+
+    .state('shelterLogin',{
+      url: '/shelterLogin',
+      controller: 'AuthorizationController',
+      templateUrl:'authorization/shelterLogin.html'
+    })
 
   .state('logout', {
     url: '/login',

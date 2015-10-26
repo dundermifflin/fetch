@@ -7,6 +7,14 @@ angular.module('fetch.authorization', [])
 .controller('AuthorizationController', ['$scope', '$state', function($scope, $state) {
   //$scope.user = {};
 
+  $scope.userRedirect= function(){
+  	$state.go('login');
+  }
+
+  $scope.shelterRedirect= function(){
+  	$state.go('shelterLogin')
+  }
+
   $scope.signIn = function() {
     $state.go('selection')
   }
