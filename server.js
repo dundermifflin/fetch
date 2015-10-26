@@ -4,6 +4,8 @@ var db = require('./app/server/dbConfig.js');
 var User = db.User;
 var Dog = db.Dog;
 var Shelter = db.Shelter;
+var bcrypt = require('bcrypt');
+var session = require('express-session');
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -30,3 +32,65 @@ app.post('/processSelection', function(req, res) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+app.post('/signup', function(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+  
+  bcrypt.hash(password, null, null, function(error, hash) {
+    new User({ username: username })
+      .fetch()
+      .then(function(user) {
+        if (!user) {
+          var newUser = new User({
+            username: username,
+            password: hash
+          })
+          
+          newUser.save()
+            .then(function(newUser) {
+              req.session.userid = newUser;
+              res.redirect('/selection');
+            });
+        } else {
+          console.log('Account already exists');
+          res.redirect('/signup');
+        }
+      })
+  })
+});
+
+  app.post('/login', function(req, res) {
+    var name = req.body.username;
+    var password = req.body.password;
+
+
+    new User({ username: name })
+      .fetch()
+      .then(function(user) {
+        if (!user) {
+          console.log('username does not exist')
+          res.redirect('/login');
+        }
+
+    bcrypt.compare(password, user.get('password'), function(error, matches) {
+        if (matches) {
+          console.log('Approved');
+          req.session.userid = user;
+          res.redirect('/selection');
+        } else {
+          console.log('NO');
+          res.redirect('/login');
+        }
+      })
+    })
+  });
+
+  app.get('/logout', function(req, res) {
+    delete req.session.userid;
+    res.redirect('/login');
+  });
+
+
+
+
