@@ -6,12 +6,11 @@ angular.module('fetch.services', [])
     return $http({
       method: 'POST',
       url: '/processSelection',
-      data: {
-        type: input
+      params: {
+        activity: input
       }
     }).then(function(response) {
       toggleAvail(response);
-      console.log('dogfactoryresponse', response);
       return response;
     });
   };
@@ -25,6 +24,27 @@ angular.module('fetch.services', [])
     processSelection: processSelection
   };
 })
+
+.factory('ShelterFactory', ['$http', function($http) {
+
+  var addDog = function(dog) {
+    return $http({
+        method: 'POST',
+        url: '/addDog',
+        params: {
+        }
+      })
+      .then(function(resp) {
+
+      })
+  }
+
+
+
+  return {
+    addDog: addDog
+  }
+}])
 
 //  ADDED AuthFactory:  FILL ME IN!!!
 .factory('AuthorizationFactory', ['$http', function($http) {
@@ -59,6 +79,6 @@ angular.module('fetch.services', [])
     signin: signin,
     signup: signup,
     signout: signout
-  };
+  }
 
 }]);
