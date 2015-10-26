@@ -1,30 +1,34 @@
 // allows user to sign in and out
-	//triggers auth factory
+//triggers auth factory
 angular.module('fetch.authorization', [])
 
 
-  //  ADDED authorizationController: FILL ME IN!!!
-  .controller('AuthorizationController', ['$scope', function($scope) {
-    //$scope.user = {};
+//  ADDED authorizationController: FILL ME IN!!!
+.controller('AuthorizationController', ['$scope', '$state', function($scope, $state) {
+  //$scope.user = {};
 
-  $scope.signin = function () {
-    AuthorizationFactory.signin()
-      .then(function (token) {
-        
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
+  $scope.signIn = function() {
+    $state.go('selection')
+  }
 
-  $scope.signup = function () {
-    AuthorizationFactory.signup()
-      .then(function (token) {
-        
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  };
+
+//     AuthorizationFactory.signin()
+//       .then(function(token) {
+
+//       })
+//       .catch(function(error) {
+//         console.error(error);
+//       });
+//   };
+
+//   $scope.signup = function() {
+//     AuthorizationFactory.signup()
+//       .then(function(token) {
+
+//       })
+//       .catch(function(error) {
+//         console.error(error);
+//       });
+//   };
 
 }]);
