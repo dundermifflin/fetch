@@ -7,12 +7,12 @@ angular.module('fetch.authorization', [])
 .controller('AuthorizationController', ['$scope', '$state', function($scope, $state) {
   //$scope.user = {};
 
-  $scope.userRedirect= function(){
-  	$state.go('login');
+  $scope.userRedirect = function() {
+    $state.go('login');
   }
 
-  $scope.shelterRedirect= function(){
-  	$state.go('shelterLogin')
+  $scope.shelterRedirect = function() {
+    $state.go('shelterLogin')
   }
 
   $scope.signIn = function() {
@@ -20,23 +20,23 @@ angular.module('fetch.authorization', [])
   }
 
 
-//     AuthorizationFactory.signin()
-//       .then(function(token) {
+  //     AuthorizationFactory.signin()
+  //       .then(function(token) {
 
-//       })
-//       .catch(function(error) {
-//         console.error(error);
-//       });
-//   };
+  //       })
+  //       .catch(function(error) {
+  //         console.error(error);
+  //       });
+  //   };
 
-//   $scope.signup = function() {
-//     AuthorizationFactory.signup()
-//       .then(function(token) {
+  //   $scope.signup = function() {
+  //     AuthorizationFactory.signup()
+  //       .then(function(token) {
 
-//       })
-//       .catch(function(error) {
-//         console.error(error);
-//       });
-//   };
+  //       })
+  //       .catch(function(error) {
+  //         console.error(error);
+  //       });
+  //   };
 
 }]);
