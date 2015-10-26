@@ -19,7 +19,7 @@ knex.schema.hasTable('users').then(function(exists) {
       user.string('password');
       user.integer('zip');
       user.binary('hasDog');
-    }).then(function(table){
+    }).then(function(table) {
       console.log('made the user table', table);
     })
   }
@@ -37,11 +37,14 @@ knex.schema.hasTable('dogs').then(function(exists) {
         .unsigned()
         .references('id')
         .inTable('shelters');
+      dog.string('name');
       dog.binary('isMale');
       dog.string('blurb');
       dog.string('activity');
       dog.string('photoUrl');
       dog.string('breed');
+    }).then(function(table) {
+      console.log('dog table has been made');
     })
   }
 });
@@ -52,6 +55,8 @@ knex.schema.hasTable('shelters').then(function(exists) {
       shelter.increments('id').primary();
       shelter.integer('zip')
       shelter.integer('name')
+    }).then(function(table) {
+      console.log('shelter table has been made');
     })
   }
 });
@@ -70,7 +75,7 @@ var User = bookshelf.Model.extend({
   }
 });
 
-module.exports.Dog = bookshelf.Model.extend({
+var Dog = bookshelf.Model.extend({
   tableName: 'dogs',
   shelter: function() {
     return this.belongsTo(Shelter);
@@ -80,24 +85,42 @@ module.exports.Dog = bookshelf.Model.extend({
   }
 });
 
-module.exports.Shelter = bookshelf.Model.extend({
+var Shelter = bookshelf.Model.extend({
   tableName: 'shelters',
   dog: function() {
     return this.hasMany(Dog);
   }
 });
 
-new User ({
-	name: "Yusuf",
-	zip: 94903,
-	hasDog: false
-}).save();
-new User({name: "Yusuf"}).fetch().then(function(found){
-	if(found){
-		console.log('it works', found.attributes);
-	}
-})
-//  user.string('name');
-//       user.string('password');
-//       user.integer('zip');
-//       user.binary('hasDog');
+new Dog({
+  isMale: 1,
+  name: "Snoop",
+  blurb: "puff puff pass baby",
+  activity: "smoke weed",
+  breed: "Ganja shepard"
+}).save()
+
+new Dog({
+  isMale: 1
+}).fetch().then(function(doggiedog){
+  console.log('success: ', doggiedog.attributes);
+});
+
+     // dog.increments('id').primary();
+     //  dog.integer('userId')
+     //    .unsigned()
+     //    .references('id')
+     //    .inTable('users');
+     //  dog.integer('shelterId')
+     //    .unsigned()
+     //    .references('id')
+     //    .inTable('shelters');
+     //  dog.binary('isMale');
+     //  dog.string('blurb');
+     //  dog.string('activity');
+     //  dog.string('photoUrl');
+     //  dog.string('breed');
+
+module.exports.User = User;
+module.exports.Dog = Dog;
+module.exports.Shelter = Shelter;
