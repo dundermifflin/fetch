@@ -24,4 +24,12 @@ angular.module('fetch.authorization', [])
       AuthorizationFactory.register(user);
     }
 
+    $scope.shelterLogin = function(shelter) {
+      AuthorizationFactory.shelterLogin(shelter);
+    }
+
+    $scope.shelterRegister = function(shelter) {
+      AuthorizationFactory.shelterRegister(shelter);
+    }
+
 }]);

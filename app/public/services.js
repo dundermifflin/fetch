@@ -45,6 +45,7 @@ angular.module('fetch.services', [])
 }])
 
 .factory('AuthorizationFactory', ['$http', '$state', function($http, $state) {
+
   var login = function(user) {
     return $http({
         method: 'POST',
@@ -77,6 +78,36 @@ angular.module('fetch.services', [])
       });
   };
 
+  var shelterLogin = function(shelter) {
+    return $http({
+        method: 'POST',
+        url: '/shelterLogin',
+        params: {
+          email: shelter.email,
+          displayName: shelter.displayName,
+          password: shelter.password
+        }
+      })
+      .success(function(response) {
+        $state.go(response);
+      });
+  };
+
+  var shelterRegister = function(shelter) {
+    return $http({
+        method: 'POST',
+        url: '/shelterRegister',
+        params: {
+          email: shelter.email,
+          displayName: shelter.displayName,
+          password: shelter.password
+        }
+      })
+      .success(function(response) {
+        $state.go(response);
+      });
+  };
+
   var logout = function() {
 
   };
@@ -84,7 +115,10 @@ angular.module('fetch.services', [])
   return {
     login: login,
     register: register,
+    shelterLogin: shelterLogin,
+    shelterRegister: shelterRegister,
     logout: logout
+
   };
 
 

@@ -1,18 +1,22 @@
 <div ng-controller="AuthorizationController">
     <h1 id="loginSlogan"> Sign up your dogs to be fetched today!</h1>
     <form name="form" class="css-form">
-        Userame
-        <input type="text" ng-model="shelter.name" name="username" required="" />
-        <br /> Password
-        <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required="">
-        <br/>
+        Shelter Name
+        <input type="text" ng-model="shelter.displayName" name="displayName" required="" /> <br />
+
+        Email
+        <input type="email" ng-model="shelter.email" name="email" required="" /> <br />
+
+        Password
+        <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required=""> <br/>
+
         <div ng-show="form.$submitted || form.userame.$touched">
             <div ng-show="form.uName.$error.required">Please enter your username</div>
         </div>
     </form>
-    <button type="submit" class="btn btn-default login" ng-click="logIn()">Log In</button>
+    <button type="submit" class="btn btn-default login" ng-click="shelterLogin(shelter)">Log In</button>
     </form>
-    <button type="submit" class="btn btn-default login" ng-click="register()">Register</button>
+    <button type="submit" class="btn btn-default login" ng-click="shelterRegister(shelter)">Register</button>
+    
     <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
-</div>
 </div>
