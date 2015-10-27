@@ -24,10 +24,12 @@ knex.schema.hasTable('users').then(function(exists) {
   if (!exists) {
     knex.schema.createTable('users', function(user) {
       user.increments('id').primary();
-      user.string('name');
+      user.string('email');
       user.string('password');
       user.integer('zip');
       user.binary('hasDog');
+      user.string('firstName');
+      user.string('lastName');
     }).then(function(table) {
       console.log('made the user table', table);
     })
@@ -52,8 +54,8 @@ knex.schema.hasTable('dogs').then(function(exists) {
       dog.string('activity');
       dog.string('photoUrl');
       dog.string('breed');
-      dog.binary('isAvailible');
-      dog.integer('outtings'); // added this field to track number of times out of kennel
+      dog.binary('isAvail');
+      dog.integer('outings'); // added this field to track number of times out of kennel
     }).then(function(table) {
       console.log('dog table has been made');
     })
@@ -65,7 +67,8 @@ knex.schema.hasTable('shelters').then(function(exists) {
     knex.schema.createTable('shelters', function(shelter) {
       shelter.increments('id').primary();
       shelter.integer('zip');
-      shelter.integer('name');
+      shelter.string('email');
+      shelter.string('displayName');
     }).then(function(table) {
       console.log('shelter table has been made');
     })

@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 
 // To switch databases, uncomment the postgres and comment out the dbConfig
-var db = require('./app/server/dbConfig.js');
-// var db = require('./app/server/dbHerokuPostgres.js');
+// var db = require('./app/server/dbConfig.js');
+var db = require('./app/server/dbHerokuPostgres.js');
 
 var User = db.User;
 var Dog = db.Dog;
@@ -55,18 +55,18 @@ app.listen(app.get('port'), function() {
 
 
 app.post('/register', function(req, res) {
-  var name = req.query.username;
+  var email = req.query.username;
   var password = req.query.password;
 
   bcrypt.hash(password, 5, function(error, hash) {
     var pass = hash;
 
-    new User({ name: name })
+    new User({ email: email })
       .fetch()
       .then(function(user) {
         if (!user) {
           var newUser = new User({
-            name: name,
+            email: email,
             password: pass
           })
 
