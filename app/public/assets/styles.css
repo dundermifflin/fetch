@@ -10,6 +10,19 @@
     background-color: #FF9A7A;
 }
 
+.fetchMe {
+    margin-top: 20px;
+    background-color: #4C5FB2;
+    color:white;
+    width: 150px;
+}
+
+.fetchMe:hover {
+    background-color: #FF9A7A;
+    width: 175px;
+    color:white;
+}
+
 .btn.choose {
     background-color: #4C5FB2;
     height: 80px;
@@ -50,7 +63,6 @@ img.select {
 .selectionContainer {
     margin-left: 5%;
 }
-
 
 #dogIndex {
     height: 500px;
@@ -94,7 +106,7 @@ h1 #loginSlogan {
 
 .dogPhoto {
     width: 50%;
-    position:fixed;
-    right:0;
-    bottom:0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
 }
