@@ -10,6 +10,19 @@
     background-color: #FF9A7A;
 }
 
+.fetchMe {
+    margin-top: 20px;
+    background-color: #4C5FB2;
+    color: white;
+    width: 150px;
+}
+
+.fetchMe:hover {
+    background-color: #FF9A7A;
+    width: 175px;
+    color: white;
+}
+
 .btn.choose {
     background-color: #4C5FB2;
     height: 80px;
@@ -27,30 +40,34 @@
     text-align: center;
 }
 
+img {
+    border-radius: 5px;
+}
+
 img.select:hover {
     -webkit-filter: grayscale(0%);
-    -webkit-transition: .5s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
     -moz-filter: grayscale(0%);
-    -moz-transition: .5s ease-in-out;
+    -moz-transition: .2s ease-in-out;
     -o-filter: grayscale(0%);
-    -o-transition: .5s ease-in-out;
+    -o-transition: .2s ease-in-out;
 }
 
 img.select {
-    -webkit-filter: grayscale(100%);
-    -webkit-transition: .5s ease-in-out;
-    -moz-filter: grayscale(100%);
-    -moz-transition: .5s ease-in-out;
-    -o-filter: grayscale(100%);
-    -o-transition: .5s ease-in-out;
+    -webkit-filter: grayscale(60%);
+    -webkit-transition: .2s ease-in-out;
+    -moz-filter: grayscale(60%);
+    -moz-transition: .2s ease-in-out;
+    -o-filter: grayscale(60%);
+    -o-transition: .2s ease-in-out;
     width: 275px;
     height: 400px;
+    overflow: hidden;
 }
 
 .selectionContainer {
     margin-left: 5%;
 }
-
 
 #dogIndex {
     height: 500px;
@@ -94,7 +111,30 @@ h1 #loginSlogan {
 
 .dogPhoto {
     width: 50%;
-    position:fixed;
-    right:0;
-    bottom:0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+
+a.paw {
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    color: rgb(76, 95, 178);
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 28px;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 28px;
+    line-height: 18.6667px;
+    margin-top: 10px;
+    text-rendering: auto;
+    width: 26px;
+}
+
+.paw:hover {
+    color: #FF9A7A;
 }

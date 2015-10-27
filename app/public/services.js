@@ -51,7 +51,9 @@ angular.module('fetch.services', [])
         method: 'POST',
         url: '/login',
         params: {
-          name: user.username,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
           password: user.password
         }
       })
@@ -65,7 +67,9 @@ angular.module('fetch.services', [])
         method: 'POST',
         url: '/register',
         params: {
-          username: user.username,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
           password: user.password
         }
       })
