@@ -4,7 +4,6 @@ var app = express();
 // To switch databases, uncomment the postgres and comment out the dbConfig
 // var db = require('./app/server/dbConfig.js');
 var db = require('./app/server/dbHerokuPostgres.js');
-
 var User = db.User;
 var Dog = db.Dog;
 var Shelter = db.Shelter;
@@ -36,19 +35,40 @@ app.post('/addDog',function(req,res){
   })
 })
 
-
 app.post('/processSelection', function(req, res) {
+  console.log('in process Selection')
   var activity = req.query.activity;
-  new Dog({
-    activity: activity,
-  }).fetch().then(function(found) {
-    if (found) {
-      res.send(found.attributes);
-    } else {
-      console.log('not found bro')
+
+  Dog.query({where: {activity: activity}}).fetchAll().then(function(found){
+   var foundArray= found.models
+   console.log('foundArray', foundArray)
+   var lowestOuting=null;
+   var lowestCount=100;
+   for(var i=0; i<found.models.length;i++){
+    console.log('foundmodeli', found.models[i])
+    if(found.models[i].attributes.outings > lowestCount){
+      lowestCount= found.models[i].attributes.outings;
+      lowestOuting= found.models[i];
     }
-  });
-});
+   }
+   console.log('lowestOuting',lowestOuting)
+   return lowestOuting;
+  }).then(function(lowestOuting){
+    console.log('CHOSEN', lowestOuting)
+    res.send(chosenDog);
+  })
+})
+//   new Dog({
+//     activity: activity,
+//   }).fetch({withRelated:['activity']}).then(function(found) {
+//     if (found) {
+//       console.log('FOUND: ', found)
+//       res.send(found.attributes);
+//     } else {
+//       console.log('not found bro')
+//     }
+//   });
+// });
 
 
 app.listen(app.get('port'), function() {

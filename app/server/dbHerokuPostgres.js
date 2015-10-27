@@ -117,6 +117,11 @@ var Shelter = bookshelf.Model.extend({
   }
 });
 
+// var Dogs = bookshelf.Collection.extend({
+//   model: Dog
+// })
+
+
 
 
 module.exports.User = User;
