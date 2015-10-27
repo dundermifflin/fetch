@@ -34,13 +34,13 @@
             <div class="form-group">
               <label class="col-md-2 control-label">Bio</label>
               <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog" ng-model="formData.Bio">
+                <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog" ng-model="formData.bio">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-2 control-label">Breed</label>
               <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here" ng-model="formData.Breed">
+                <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here" ng-model="formData.breed">
               </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
                 <input class="form-control vertical" type="text" value="http://" ng-model="formData.picUrl">
               </div>
             </div>
-        </div>
+        <!-- </div> -->
         </form>
       </div>
     </div>
@@ -95,6 +95,7 @@
       </div>
     </div>
   </div>
+  <button ng-click="submit()">submit</button>
 </div>
 </body>
 
