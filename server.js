@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var db = require('./app/server/dbConfig.js');
+var db = require('./app/server/dbHerokuPostgres.js');  // use this one for postgres database
 var User = db.User;
 var Dog = db.Dog;
 var Shelter = db.Shelter;
@@ -53,7 +54,7 @@ app.listen(app.get('port'), function() {
 app.post('/signup', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
-  
+
   bcrypt.hash(password, null, null, function(error, hash) {
     new User({ username: username })
       .fetch()
@@ -63,7 +64,7 @@ app.post('/signup', function(req, res) {
             username: username,
             password: hash
           })
-          
+
           newUser.save()
             .then(function(newUser) {
               req.session.userid = newUser;
