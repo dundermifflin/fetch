@@ -7,6 +7,11 @@ angular.module('fetch.selection', [])
     console.log('in process selection hurray')
       //send type selected to DogFactory to process query in server
 
+    $scope.hover= function(activity){
+      console.log('hoveringgggg')
+      return $scope.activity.show===true;
+    }
+
     $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
       console.log('selection response', response.data)
       $state.go('confirmation', {
