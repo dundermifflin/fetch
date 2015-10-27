@@ -1,7 +1,17 @@
 var path = require('path');
 var pg = require('pg');
-var localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
+var localPWD;
 
+try {
+  localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
+} catch (ex) {
+  console.log(ex);
+  localPWD = {
+    user: process.env.DATABASE_URL.split(':')[1].slice(2),
+    password: process.env.DATABASE_URL.split(':')[2].split('@')[0],
+    database: process.env.DATABASE_URL.split(':')[3].split('/')[1]
+  };
+}
 
 // Use a connection object; do NOT try using a connection url. Known issue.
 // https://github.com/tgriesser/knex/issues/852
@@ -69,6 +79,7 @@ knex.schema.hasTable('shelters').then(function(exists) {
       shelter.integer('zip');
       shelter.string('email');
       shelter.string('displayName');
+      shelter.string('password');
     }).then(function(table) {
       console.log('shelter table has been made');
     })
