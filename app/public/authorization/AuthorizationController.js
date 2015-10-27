@@ -16,13 +16,11 @@ angular.module('fetch.authorization', [])
       $state.go('shelterLogin');
     }
 
-    $scope.logIn = function() {
-      $state.go('selection');
+    $scope.login = function(user) {
+      AuthorizationFactory.login(user);
     }
 
     $scope.register = function(user) {
-      console.log('trying to register');
-
       AuthorizationFactory.register(user);
     }
 
