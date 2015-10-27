@@ -1,18 +1,21 @@
-# fetch
-instacart for dogs
+# Fetch
+
+Get the furry friend that's perfect for your activities, for just as long as you need.
+
+
+### Fetch : FRIEND ###
+Borrow a clean, cheerful companion, ready to hang out and keep you company, stroll around, or just sit in your lap.
+
+### Fetch : FAMILY ###
+This calm, careful pooch loves kids and gets along great at family picnics and afterschool birthday parties!
+
+### Fetch : FIT ###
+Strong fast running companions will cheer you on and keep you moving! They're excited to explore for hours, and a great way to keep up the pace on the trail!
+
+### Fetch : FORCE ###
+Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.
+
 
 [GoogleDoc working copy of press release](https://docs.google.com/document/d/1Ygpd70QUenDMUDgOfZHZRAtuxV9VaNnIl7uo_PD0IMg/edit)
 
 [Git workflow](https://docs.google.com/document/d/1cyaSoGKVCTJD0WMuwehVhGElPKjQTpnBsGVHt915xvE/edit)
-
-- don't forget to 'npm install' if you've just received these files
-
-## Deployment: ##
-- heroku login (mksdundermiff@gmail for now)
-- heroku create fetch-app (only on theagsfdip this)
-
-- git pushadsgfsadgafdsoku master
-- heroku ps:scale web=1
-- 'heroku open' will pop the link to the app open in a browser
-
-"This is how we do it... It's Friday Night!"
