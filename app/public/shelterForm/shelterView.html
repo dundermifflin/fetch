@@ -1,102 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link src="./styles.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
-
-<body>
-<div ng-controller="ShelterController">
-  <div class="row">
+  <div ng-controller="ShelterController">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title"> Basic information
+            <span><i class="fa fa-paw"></i></span>
+          </h3>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal row-border" ng-submit="submit()">
+              <!-- define or change submit() to match factory definition -->
+              <div class="form-group">
+                <label class="col-md-2 control-label">Name</label>
+                <div class="col-md-6">
+                  <input class="form-control" type="text" name="regular" placeholder="What should we call your furry friend?" ng-model="formData.name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Bio</label>
+                <div class="col-md-6">
+                  <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog" ng-model="formData.blurb">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Breed</label>
+                <div class="col-md-6">
+                  <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here" ng-model="formData.breed">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Photo Url</label>
+                <div class="col-md-6">
+                  <input class="form-control vertical" type="text" placeholder="http://" ng-model="formData.photoUrl">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">Sex
+            <span><i class="fa fa-paw"></i></span>
+          </h3>
+          </div>
+          <div class="panel-body">
+            <label class="radio-inline">
+              <input type="radio" id="male" ng-model="formData.isMale" ng-value='true'>Male
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="female" ng-model="formData.isMale" ng-value='false'>Female
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+            <h3 class="panel-title">Activity 
+            <span><i class="fa fa-paw"></i></span>
+          </h3>
+          </div>
+          <div class="panel-body">
+            <label class="radio-inline">
+              <input type="radio" id="fit" ng-model="formData.activity" value="Fit">Fit
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="force" ng-model="formData.activity" value="Force">Force
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="family" ng-model="formData.activity" value="Family">Family
+            </label>
+            <label class="radio-inline">
+              <input type="radio" id="friend" ng-model="formData.activity" value="Friend">Friend
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading clearfix">
-          <h3 class="panel-title"> Basic information
-            <span><i class="fa fa-paw"></i></span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <form class="form-horizontal row-border" ng-submit="submit()">
-            <!-- define or change submit() to match factory definition -->
-            <div class="form-group">
-              <label class="col-md-2 control-label">Name</label>
-              <div class="col-md-6">
-                <input class="form-control" type="text" name="regular" placeholder="Snoop" ng-model="formData.name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-2 control-label">Bio</label>
-              <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog" ng-model="formData.bio">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-2 control-label">Breed</label>
-              <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here" ng-model="formData.breed">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-2 control-label">Photo</label>
-              <div class="col-md-6">
-                <input class="form-control vertical" type="text" value="http://" ng-model="formData.picUrl">
-              </div>
-            </div>
-        <!-- </div> -->
-        </form>
-      </div>
-    </div>
+    <button type="button" class="col-md-8 btn btn-success" ng-click="addDog(formData)">submit</button>
   </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading clearfix">
-          <h3 class="panel-title">Sex
-            <span><i class="fa fa-paw"></i></span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <label class="radio-inline">
-            <input type="radio" id="male" value="isMale">Male
-          </label>
-          <label class="radio-inline">
-            <input type="radio" id="female" value="isFemale">Female
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading clearfix">
-          <h3 class="panel-title">Activity 
-            <span><i class="fa fa-paw"></i></span>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <label class="radio-inline">
-            <input type="radio" id="fit" value="fit">Fit
-          </label>
-          <label class="radio-inline">
-            <input type="radio" id="force" value="force">Force
-          </label>
-          <label class="radio-inline">
-            <input type="radio" id="family" value="family">Family
-          </label>
-        </div>
-      </div>
-    </div>
-  </div>
-  <button ng-click="submit()">submit</button>
-</div>
-</body>
-
-</html>
