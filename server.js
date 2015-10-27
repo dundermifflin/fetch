@@ -55,7 +55,9 @@ app.listen(app.get('port'), function() {
 
 
 app.post('/register', function(req, res) {
-  var email = req.query.username;
+  var email = req.query.email;
+  var firstName = req.query.firstName;
+  var lastName = req.query.lastName;
   var password = req.query.password;
 
   bcrypt.hash(password, 5, function(error, hash) {
@@ -67,6 +69,8 @@ app.post('/register', function(req, res) {
         if (!user) {
           var newUser = new User({
             email: email,
+            firstName: firstName,
+            lastName: lastName,
             password: pass
           })
 
@@ -85,14 +89,16 @@ app.post('/register', function(req, res) {
 
 
 app.post('/login', function(req, res) {
-  var name = req.query.name;
+  var firstName = req.query.firstName;
+  var lastName = req.query.lastName;
+  var email = req.query.email;
   var password = req.query.password;
 
-  var newUser = new User({ name: name })
+  var newUser = new User({ email: email })
     .fetch()
     .then(function(user) {
       if (!user) {
-        console.log('Username does not exist');
+        console.log('Email does not exist');
         res.send('login');
       } else {
 
