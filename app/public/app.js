@@ -49,6 +49,11 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     // params:['dog'], 
     controller: 'ConfirmationController',
     templateUrl: 'confirmation/confirmationView.html'
+  })
+  .state('shelterForm', {
+    url:'/addDog',
+    controller: 'ShelterController',
+    templateUrl: 'shelterForm/shelterView.html'
   });
 
 }]);

@@ -32,6 +32,7 @@ angular.module('fetch.services', [])
         method: 'POST',
         url: '/addDog',
         params: {
+          dog: dog
         }
       })
       .then(function(resp) {
