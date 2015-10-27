@@ -118,6 +118,67 @@ app.post('/login', function(req, res) {
   })
 });
 
+app.post('/shelterRegister', function(req, res) {
+  var email = req.query.email;
+  var displayName = req.query.displayName;
+  var password = req.query.password;
+
+  bcrypt.hash(password, 5, function(error, hash) {
+    var pass = hash;
+
+    new Shelter({ email: email })
+      .fetch()
+      .then(function(user) {
+        if (!user) {
+          var newShelter = new Shelter({
+            email: email,
+            displayName: displayName,
+            password: pass
+          })
+
+          newShelter.save()
+            .then(function(newShelter) {
+              req.session.userid = newShelter;
+              res.send('selection');
+            });
+        } else {
+          console.log('Shelter already exists');
+          res.send('shelterLogin');
+        }
+      })
+  })
+});
+
+
+app.post('/shelterLogin', function(req, res) {
+  var displayName = req.query.displayName
+  var email = req.query.email;
+  var password = req.query.password;
+
+  var newShelter = new Shelter({ email: email })
+    .fetch()
+    .then(function(shelter) {
+      if (!shelter) {
+        console.log('Email does not exist');
+        res.send('login');
+      } else {
+
+  var dbHash = shelter.attributes.password;
+
+  bcrypt.compare(password, dbHash, function(error, matches) {
+      if (matches) {
+        console.log('Approved');
+        req.session.userid = shelter;
+        res.send('selection');
+      } else {
+        console.log('NO');
+        res.send('login');
+      }
+    })
+    }
+  })
+});
+
 
 app.get('/logout', function(req, res) {
   delete req.session.userid;
