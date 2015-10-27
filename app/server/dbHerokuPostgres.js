@@ -1,5 +1,7 @@
 var path = require('path');
 var pg = require('pg');
+var localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
+
 
 // Use a connection object; do NOT try using a connection url. Known issue.
 // https://github.com/tgriesser/knex/issues/852
@@ -7,7 +9,12 @@ var pg = require('pg');
 var knex = require('knex')({
   client: 'pg',
   connection: {
-    // fill this in with details from secret files
+    host: "ec2-107-21-219-142.compute-1.amazonaws.com",
+    port: "5432",
+    user: localPWD.user,
+    password: localPWD.password,
+    database: localPWD.database,
+    ssl: true
   }
 });
 
