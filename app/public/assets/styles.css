@@ -19,6 +19,39 @@
     margin-top: 200px;
 }
 
+.col-sm-3.fetch-col {
+    height: 400px;
+    width: 275px;
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+}
+
+img.select:hover {
+    -webkit-filter: grayscale(0%);
+    -webkit-transition: .5s ease-in-out;
+    -moz-filter: grayscale(0%);
+    -moz-transition: .5s ease-in-out;
+    -o-filter: grayscale(0%);
+    -o-transition: .5s ease-in-out;
+}
+
+img.select {
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: .5s ease-in-out;
+    -moz-filter: grayscale(100%);
+    -moz-transition: .5s ease-in-out;
+    -o-filter: grayscale(100%);
+    -o-transition: .5s ease-in-out;
+    width: 275px;
+    height: 400px;
+}
+
+.selectionContainer {
+    margin-left: 5%;
+}
+
+
 #dogIndex {
     height: 500px;
     width: auto;
@@ -32,7 +65,7 @@
     background-color: rgba(255, 255, 255, 0.6);
     padding: 5px;
     position: relative;
-    top: 200px;
+    top: 5 0px;
 }
 
 h3 {
@@ -60,5 +93,8 @@ h1 #loginSlogan {
 }
 
 .dogPhoto {
-    width: 200px;
+    width: 50%;
+    position:fixed;
+    right:0;
+    bottom:0;
 }
