@@ -27,6 +27,7 @@ app.post('/addDog',function(req,res){
     activity: dog.activity,
     blurb: dog.blurb,
     isAvail: true,
+    isMale: dog.isMale,
     breed: dog.breed,
     photoUrl: dog.photoUrl
   }).save().then(function(dog){
@@ -46,16 +47,13 @@ app.post('/processSelection', function(req, res) {
    var lowestCount=100;
    for(var i=0; i<found.models.length;i++){
     console.log('foundmodeli', found.models[i])
-    if(found.models[i].attributes.outings > lowestCount){
+    if(found.models[i].attributes.outings < lowestCount){
       lowestCount= found.models[i].attributes.outings;
       lowestOuting= found.models[i];
     }
    }
-   console.log('lowestOuting',lowestOuting)
-   return lowestOuting;
-  }).then(function(lowestOuting){
-    console.log('CHOSEN', lowestOuting)
-    res.send(chosenDog);
+   console.log('lowestOuting',lowestOuting.attributes)
+   return res.send(lowestOuting.attributes);
   })
 })
 //   new Dog({

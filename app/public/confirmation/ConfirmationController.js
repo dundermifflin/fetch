@@ -8,7 +8,7 @@ angular.module('fetch.confirmation', [])
   // should be 'dog' object. if so, set to $scope.dog
   $scope.dog = JSON.parse($state.params.dog);
   console.log('Male', $scope.dog.isMale)
-  if ($scope.dog.isMale === 1) {
+  if ($scope.dog.isMale === true ) {
     $scope.dog.gender = 'his'
   } else {
     $scope.dog.gender = 'her'
