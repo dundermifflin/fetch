@@ -1,22 +1,26 @@
 <!-- TODO: add ng-mouseover and ng-show directives on each of these -->
 <div ng-controller="SelectionController">
-    <div class="container">
+    <div class="selectionContainer">
         <div class="row">
-            <div class="col-sm-3 fetch-col" ng-click="processSelection('Friend')">
-                <h2>Fetch Friend</h2>
+            <div class="col-sm-3 fetch-col" ng-mouseover="hover('friend')"ng-click="processSelection('Friend')">
+                <h2>FetchFRIEND</h2>
+                <img class='select' src='https://c2.staticflickr.com/4/3496/3227882866_9591b6f85e.jpg'>
                 <!--  <div ng-show="{{ true }}">Borrow a clean, cheerful companion, ready to hang out and keep you company, stroll around, or just sit in your lap.</div> -->
             </div>
-            <div class="col-sm-3 fetch-col" ng-click="processSelection('Family')">
-                <h2>Fetch Family</h2>
+            <div class="col-sm-3 fetch-col" ng-mouseenter="hover('family')"ng-click="processSelection('Family')">
+                <h2>FetchFAMILY</h2>
+                <img class='select'src='http://static4.shop033.com/resources/18/160536/picture/7B/85918843.jpg'>
                 <!--    <div ng-show="{{ true }}">This calm, careful pooch loves kids and gets along great at family picnics and afterschool birthday parties!</div> -->
             </div>
-            <div class="col-sm-3 fetch-col" ng-click="processSelection('Fit')">
-                <h2>Fetch Fit</h2>
+            <div class="col-sm-3 fetch-col" ng-mouseenter="hover('fit')" ng-click="processSelection('Fit')">
+                <h2>FetchFIT</h2>
+                <img class='select' src='http://c.photoshelter.com/img-get/I0000K.K0YPa18a4/s/710/east-sooke-hiking-dog-0096.jpg'>
                 <!--  <div ng-show="{{ true }}">Strong fast running companions will cheer you on and keep you moving! They're excited to explore for hours, and a great way to keep up the pace on the trail!</div> -->
             </div>
-            <div class="col-sm-3 fetch-col" ng-click="processSelection('Force')">
-                <h2>Fetch Force</h2>
-                <!--               <div ng-show="{{ true }}">Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.</div> -->
+            <div class="col-sm-3 fetch-col" ng-mouseenter="hover('force')" ng-click="processSelection('Force')">
+                <h2>FetchFORCE</h2>
+                <img class='select' src='https://s3.amazonaws.com/cms-biglife/files/photos/839/images/large.jpeg?1369008408'>
+                <div ng-show='force'>Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.</div>
             </div>
         </div>
     </div>
