@@ -27,25 +27,25 @@
             <div class="form-group">
               <label class="col-md-2 control-label">Name</label>
               <div class="col-md-6">
-                <input class="form-control" type="text" name="regular" placeholder="Snoop">
+                <input class="form-control" type="text" name="regular" placeholder="Snoop" ng-model="formData.name">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-2 control-label">Bio</label>
               <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog">
+                <input class="form-control vertical" type="text" name="regular" placeholder="Tell us about your dog" ng-model="formData.Bio">
               </div>
             </div>
             <div class="form-group">
               <label class="col-md-2 control-label">Breed</label>
               <div class="col-md-6">
-                <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here">
+                <input class="form-control vertical" type="text" name="regular" placeholder="Enter breed here" ng-model="formData.Breed">
               </div>
             </div>
             <div class="form-group">
-              <label class="col-md-2 control-label">Please enter a photo url here</label>
+              <label class="col-md-2 control-label">Photo</label>
               <div class="col-md-6">
-                <input class="form-control vertical" type="text" value="http://">
+                <input class="form-control vertical" type="text" value="http://" ng-model="formData.picUrl">
               </div>
             </div>
         </div>
