@@ -16,14 +16,7 @@ app.use(express.static(__dirname + '/node_modules'));
 app.use(cookieParser());
 app.use(session({secret: "This is a secret"}));
 
-// var sendMeData = function(query) {
-//   return {
-//     name: "Spot",
-//     type: 'friend',
-//     avail: true,
-//     blurb: "I love eating socks!!"
-//   };
-// }
+
 app.post('/addDog',function(req,res){
   new Dog({
     name: req.query.name,
@@ -36,6 +29,7 @@ app.post('/addDog',function(req,res){
     console.log('Successfully Saved' + dog.name)
   })
 })
+
 
 app.post('/processSelection', function(req, res) {
   var activity = req.query.activity;
@@ -50,19 +44,20 @@ app.post('/processSelection', function(req, res) {
   });
 });
 
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-app.post('/register', function(req, res) {
 
-  var name = req.query.name;
+app.post('/register', function(req, res) {
+  var name = req.query.username;
   var password = req.query.password;
   
   bcrypt.hash(password, 5, function(error, hash) {
     var pass = hash;
     
-    new User({ name: name, password: hash })
+    new User({ name: name })
       .fetch()
       .then(function(user) {
         if (!user) {
@@ -74,44 +69,48 @@ app.post('/register', function(req, res) {
           newUser.save()
             .then(function(newUser) {
               req.session.userid = newUser;
-              res.send('/selection');
+              res.send('selection');
             });
         } else {
           console.log('Account already exists');
-          res.redirect('/register');
+          res.send('login');
         }
       })
   })
 });
 
-  app.post('/login', function(req, res) {
-    var name = req.query.name;
-    var password = req.query.password;
 
+app.post('/login', function(req, res) {
+  var name = req.query.name;
+  var password = req.query.password;
 
-    new User({ name: name })
-      .fetch()
-      .then(function(user) {
-        if (!user) {
-          console.log('username does not exist')
-          res.redirect('/login');
-        }
+  var newUser = new User({ name: name })
+    .fetch()
+    .then(function(user) {
+      if (!user) {
+        console.log('Username does not exist');
+        res.send('login');
+      } else {
 
-    bcrypt.compare(password, user.get('password'), function(error, matches) {
-        if (matches) {
-          console.log('Approved');
-          req.session.userid = user;
-          res.redirect('/selection');
-        } else {
-          console.log('NO');
-          res.redirect('/login');
-        }
-      })
+  var dbHash = user.attributes.password;
+
+  bcrypt.compare(password, dbHash, function(error, matches) {
+      if (matches) {
+        console.log('Approved');
+        req.session.userid = user;
+        res.send('selection');
+      } else {
+        console.log('NO');
+        res.send('login');
+      }
     })
-  });
+    }
+  })
+});
 
-  app.get('/logout', function(req, res) {
-    delete req.session.userid;
-    res.redirect('/login');
-  });
+
+app.get('/logout', function(req, res) {
+  delete req.session.userid;
+  res.send('login');
+});
 

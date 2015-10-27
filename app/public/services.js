@@ -39,26 +39,23 @@ angular.module('fetch.services', [])
       })
   }
 
-
-
   return {
     addDog: addDog
   }
 }])
 
-//  ADDED AuthFactory:  FILL ME IN!!!
 .factory('AuthorizationFactory', ['$http', '$state', function($http, $state) {
   var login = function(user) {
     return $http({
         method: 'POST',
         url: '/login',
         params: {
-          username: user.name,
+          name: user.username,
           password: user.password
         }
       })
-      .then(function(response) {
-
+      .success(function(response) {
+        $state.go(response);
       });
   };
 
@@ -67,20 +64,18 @@ angular.module('fetch.services', [])
         method: 'POST',
         url: '/register',
         params: {
-          name: user.name,
+          username: user.username,
           password: user.password
         }
       })
       .success(function(response) {
-        console.log('auth factory register response: ', response);
-        $state.go('selection');
+        $state.go(response);
       });
   };
 
   var logout = function() {
 
   };
-
 
   return {
     login: login,
