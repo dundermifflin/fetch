@@ -1,7 +1,15 @@
 <div ng-controller="AuthorizationController">
     <h1 id="loginSlogan"> Ready to fetch your furry friend?</h1>
     <form name="form" class="css-form">
+        First Name
+        <input type="text" ng-model="user.firstName" name="firstName" required="" /> <br />
+        
+        Last Name
+        <input type="text" ng-model="user.lastName" name="lastName" required="" /> <br />
 
+        Zip Code
+        <input type="text" ng-model="user.zip" name="zip" required="" /> <br />
+        
         Email
         <input type="email" ng-model="user.email" name="email" required="" /> <br />
         
@@ -13,11 +21,8 @@
         </div>
     </form>
 
-    <button type="submit" class="btn btn-default login" ng-click="login(user)">Log In</button>
-    <!-- <button type="submit" class="btn btn-default login" ng-click="register(user)">Register</button> -->
-    <div>Not a user yet? 
-      <a href="/#/userRegistration">Register  
-    </div>
+    <button type="submit" class="btn btn-default login" ng-click="register(user)">Register</button>
+    
     <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
 
 </div>

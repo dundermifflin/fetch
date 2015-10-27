@@ -9,7 +9,16 @@ angular.module('fetch.selection', [])
 
     $scope.hover = function(activity) {
       console.log('hoveringgggg')
+      this.hoverEdit = true;
       return $scope.activity.show === true;
+    }
+
+    $scope.hoverIn = function() {
+      this.hoverEdit = true;
+    }
+
+    $scope.hoverOut = function() {
+      this.hoverEdit = false;
     }
 
     $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {

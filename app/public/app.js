@@ -14,6 +14,18 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     templateUrl: 'authorization/chooseLogin.html'
   })
 
+  .state('userRegistration', {
+    url: '/userRegistration',
+    controller: 'AuthorizationController',
+    templateUrl: 'authorization/userRegistration.html'
+  })
+  
+  .state('shelterRegistration', {
+    url: '/shelterRegistration',
+    controller: 'AuthorizationController',
+    templateUrl: 'authorization/shelterRegistration.html'
+  })
+
   .state('login', {
     url: '/login',
     controller: 'AuthorizationController',
