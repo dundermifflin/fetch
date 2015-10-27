@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
+
+// To switch databases, uncomment the postgres and comment out the dbConfig
 var db = require('./app/server/dbConfig.js');
-var db = require('./app/server/dbHerokuPostgres.js');  // use this one for postgres database
+// var db = require('./app/server/dbHerokuPostgres.js');
+
 var User = db.User;
 var Dog = db.Dog;
 var Shelter = db.Shelter;
