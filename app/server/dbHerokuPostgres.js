@@ -7,12 +7,7 @@ var pg = require('pg');
 var knex = require('knex')({
   client: 'pg',
   connection: {
-    host: "ec2-107-21-219-142.compute-1.amazonaws.com",
-    port: "5432",
-    user: "hpwzkillkpswbg",
-    password: "2zOWjGdSx_SDwElAXVxGmMU8k1",
-    database: "d7f6r0ms273te6",
-    ssl: true
+    // fill this in with details from secret files
   }
 });
 
