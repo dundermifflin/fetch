@@ -25,7 +25,7 @@ angular.module('fetch.services', [])
   };
 })
 
-.factory('ShelterFactory', ['$http', function($http) {
+.factory('ShelterFactory', ['$http', '$state', function($http, $state) {
 
   var addDog = function(dog) {
     return $http({
@@ -36,7 +36,8 @@ angular.module('fetch.services', [])
         }
       })
       .then(function(resp) {
-
+        $state.go('shelterDogs');
+        console.log('dog communicated to server');
       })
   }
 

@@ -13,6 +13,6 @@ angular.module('fetch.shelter', [])
 
   $scope.addDog = function(dog) {
     console.log("ng-submit dog: ", dog);
-    //return ShelterFactory.addDog(dog);
+    return ShelterFactory.addDog(dog)
   }
 }]);

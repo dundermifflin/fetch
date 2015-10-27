@@ -20,7 +20,7 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     templateUrl: 'authorization/login.html'
   })
 
-  .state('shelterdogs', {
+  .state('shelterDogs', {
     url: '/shelterDogs',
     controller: 'DogsController',
     templateUrl: 'shelterDogs/shelterDogs.html'
