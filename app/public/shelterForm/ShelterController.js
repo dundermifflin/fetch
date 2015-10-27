@@ -1,17 +1,18 @@
 angular.module('fetch.shelter', [])
 
-.controller('ShelterController', ['$scope', 'ShelterFactory'], function($scope, ShelterFactory) {
+.controller('ShelterController', ['$scope', '$state', 'ShelterFactory', function($scope, $state, ShelterFactory) {
   $scope.formData = {
-    name:null,
-    bio: null,
-    picUrl: null,
-    breed: null
+    name: null,
+    blurb: null,
+    photoUrl: null,
+    breed: null,
+    activity: null,
+    isMale: 0 //will be a boolean value 
   }
 
-  $scope.submit = function(){
-    
-  }
+
   $scope.addDog = function(dog) {
-    return ShelterFactory.addDog(dog);
+    console.log("ng-submit dog: ", dog);
+    return ShelterFactory.addDog(dog)
   }
-})
+}]);

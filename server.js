@@ -22,15 +22,17 @@ app.use(session({secret: "This is a secret"}));
 
 
 app.post('/addDog',function(req,res){
+  var dog = JSON.parse(req.query.dog);
   new Dog({
-    name: req.query.name,
-    activity: req.query.activity,
-    blurb: req.query.blurb,
-    avail: true,
-    breed: req.body.breed,
-    photoUrl: req.body.photoUrl
+    name: dog.name,
+    activity: dog.activity,
+    blurb: dog.blurb,
+    isAvail: true,
+    breed: dog.breed,
+    photoUrl: dog.photoUrl
   }).save().then(function(dog){
-    console.log('Successfully Saved' + dog.name)
+    res.end();
+    console.log('Successfully Saved')
   })
 })
 

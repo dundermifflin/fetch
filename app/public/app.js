@@ -20,7 +20,7 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     templateUrl: 'authorization/login.html'
   })
 
-  .state('shelterdogs', {
+  .state('shelterDogs', {
     url: '/shelterDogs',
     controller: 'DogsController',
     templateUrl: 'shelterDogs/shelterDogs.html'
@@ -49,6 +49,11 @@ angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.sel
     // params:['dog'], 
     controller: 'ConfirmationController',
     templateUrl: 'confirmation/confirmationView.html'
+  })
+  .state('shelterForm', {
+    url:'/addDog',
+    controller: 'ShelterController',
+    templateUrl: 'shelterForm/shelterView.html'
   });
 
 }]);
