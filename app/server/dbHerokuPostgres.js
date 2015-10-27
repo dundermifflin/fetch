@@ -65,7 +65,7 @@ knex.schema.hasTable('dogs').then(function(exists) {
       dog.string('photoUrl');
       dog.string('breed');
       dog.binary('isAvail');
-      dog.integer('outings'); // added this field to track number of times out of kennel
+      dog.integer('outings').defaultTo(0); // added this field to track number of times out of kennel
     }).then(function(table) {
       console.log('dog table has been made');
     })
