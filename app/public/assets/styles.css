@@ -6,6 +6,38 @@
     font-weight: 300;
 }
 
+.col-sm-3.fetch-col{
+    height:400px;
+    width: 275px;
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+}
+
+img:hover {
+  -webkit-filter: grayscale(0%);
+  -webkit-transition: .5s ease-in-out;
+  -moz-filter: grayscale(0%);
+  -moz-transition: .5s ease-in-out;
+  -o-filter: grayscale(0%);
+  -o-transition: .5s ease-in-out;
+} 
+
+img {
+  -webkit-filter: grayscale(100%);
+  -webkit-transition: .5s ease-in-out;
+  -moz-filter: grayscale(100%); 
+  -moz-transition: .5s ease-in-out;
+  -o-filter: grayscale(100%); 
+  -o-transition: .5s ease-in-out;
+  width:275px;
+  height:400px;
+}
+
+.selectionContainer{
+    margin-left: 5%;
+}
+
 .btn.choose:hover {
     background-color: #FF9A7A;
 }
