@@ -10,11 +10,15 @@ var Dog = db.Dog;
 var Shelter = db.Shelter;
 var bcrypt = require('bcrypt');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/app/public'));
 app.use(express.static(__dirname + '/node_modules'));
+
+app.use(cookieParser());
+app.use(session({secret: "This is a secret"}));
 
 // var sendMeData = function(query) {
 //   return {
@@ -38,7 +42,7 @@ app.post('/addDog',function(req,res){
 })
 
 app.post('/processSelection', function(req, res) {
-  var activity = req.query.activity
+  var activity = req.query.activity;
   new Dog({
     activity: activity,
   }).fetch().then(function(found) {
@@ -54,39 +58,43 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-app.post('/signup', function(req, res) {
-  var username = req.body.username;
-  var password = req.body.password;
 
-  bcrypt.hash(password, null, null, function(error, hash) {
-    new User({ username: username })
+app.post('/register', function(req, res) {
+
+  var name = req.query.name;
+  var password = req.query.password;
+
+  bcrypt.hash(password, 5, function(error, hash) {
+    var pass = hash;
+
+    new User({ name: name, password: hash })
       .fetch()
       .then(function(user) {
         if (!user) {
           var newUser = new User({
-            username: username,
-            password: hash
+            name: name,
+            password: pass
           })
 
           newUser.save()
             .then(function(newUser) {
               req.session.userid = newUser;
-              res.redirect('/selection');
+              res.send('/selection');
             });
         } else {
           console.log('Account already exists');
-          res.redirect('/signup');
+          res.redirect('/register');
         }
       })
   })
 });
 
   app.post('/login', function(req, res) {
-    var name = req.body.username;
-    var password = req.body.password;
+    var name = req.query.name;
+    var password = req.query.password;
 
 
-    new User({ username: name })
+    new User({ name: name })
       .fetch()
       .then(function(user) {
         if (!user) {

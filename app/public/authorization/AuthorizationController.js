@@ -4,39 +4,26 @@ angular.module('fetch.authorization', [])
 
 
 //  ADDED authorizationController: FILL ME IN!!!
-.controller('AuthorizationController', ['$scope', '$state', function($scope, $state) {
-  //$scope.user = {};
+.controller('AuthorizationController', ['$scope', '$state', 'AuthorizationFactory', function($scope, $state, AuthorizationFactory) {
 
-  $scope.userRedirect = function() {
-    $state.go('login');
-  }
+    $scope.user = {};
 
-  $scope.shelterRedirect = function() {
-    $state.go('shelterLogin')
-  }
+    $scope.userRedirect = function() {
+      $state.go('login');
+    }
 
-  $scope.signIn = function() {
-    $state.go('selection')
-  }
+    $scope.shelterRedirect = function() {
+      $state.go('shelterLogin');
+    }
 
+    $scope.logIn = function() {
+      $state.go('selection');
+    }
 
-  //     AuthorizationFactory.signin()
-  //       .then(function(token) {
+    $scope.register = function(user) {
+      console.log('trying to register');
 
-  //       })
-  //       .catch(function(error) {
-  //         console.error(error);
-  //       });
-  //   };
-
-  //   $scope.signup = function() {
-  //     AuthorizationFactory.signup()
-  //       .then(function(token) {
-
-  //       })
-  //       .catch(function(error) {
-  //         console.error(error);
-  //       });
-  //   };
+      AuthorizationFactory.register(user);
+    }
 
 }]);
