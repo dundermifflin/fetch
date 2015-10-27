@@ -17,10 +17,12 @@ app.use(express.static(__dirname + '/app/public'));
 app.use(express.static(__dirname + '/node_modules'));
 
 app.use(cookieParser());
-app.use(session({secret: "This is a secret"}));
+app.use(session({
+  secret: "This is a secret"
+}));
 
 
-app.post('/addDog',function(req,res){
+app.post('/addDog', function(req, res) {
   var dog = JSON.parse(req.query.dog);
   new Dog({
     name: dog.name,
@@ -30,43 +32,47 @@ app.post('/addDog',function(req,res){
     isMale: dog.isMale,
     breed: dog.breed,
     photoUrl: dog.photoUrl
-  }).save().then(function(dog){
+  }).save().then(function(dog) {
     res.end();
     console.log('Successfully Saved')
   })
 })
 
 app.post('/processSelection', function(req, res) {
-  console.log('in process Selection')
-  var activity = req.query.activity;
+    console.log('in process Selection')
+    var activity = req.query.activity;
 
-  Dog.query({where: {activity: activity}}).fetchAll().then(function(found){
-   var foundArray= found.models
-   console.log('foundArray', foundArray)
-   var lowestOuting=null;
-   var lowestCount=100;
-   for(var i=0; i<found.models.length;i++){
-    console.log('foundmodeli', found.models[i])
-    if(found.models[i].attributes.outings < lowestCount){
-      lowestCount= found.models[i].attributes.outings;
-      lowestOuting= found.models[i];
-    }
-   }
-   console.log('lowestOuting',lowestOuting.attributes)
-   return res.send(lowestOuting.attributes);
+    Dog.query({
+      where: {
+        activity: activity
+      }
+    }).fetchAll().then(function(found) {
+      var foundArray = found.models
+      console.log('foundArray', foundArray)
+      var lowestOuting = null;
+      var lowestCount = 100;
+      for (var i = 0; i < found.models.length; i++) {
+        console.log('foundmodeli', found.models[i])
+        if (found.models[i].attributes.outings < lowestCount) {
+          lowestCount = found.models[i].attributes.outings;
+          lowestOuting = found.models[i];
+        }
+      }
+      console.log('lowestOuting', lowestOuting.attributes)
+      return res.send(lowestOuting.attributes);
+    })
   })
-})
-//   new Dog({
-//     activity: activity,
-//   }).fetch({withRelated:['activity']}).then(function(found) {
-//     if (found) {
-//       console.log('FOUND: ', found)
-//       res.send(found.attributes);
-//     } else {
-//       console.log('not found bro')
-//     }
-//   });
-// });
+  //   new Dog({
+  //     activity: activity,
+  //   }).fetch({withRelated:['activity']}).then(function(found) {
+  //     if (found) {
+  //       console.log('FOUND: ', found)
+  //       res.send(found.attributes);
+  //     } else {
+  //       console.log('not found bro')
+  //     }
+  //   });
+  // });
 
 
 app.listen(app.get('port'), function() {
@@ -83,7 +89,9 @@ app.post('/register', function(req, res) {
   bcrypt.hash(password, 5, function(error, hash) {
     var pass = hash;
 
-    new User({ email: email })
+    new User({
+        email: email
+      })
       .fetch()
       .then(function(user) {
         if (!user) {
@@ -114,7 +122,9 @@ app.post('/login', function(req, res) {
   var email = req.query.email;
   var password = req.query.password;
 
-  var newUser = new User({ email: email })
+  var newUser = new User({
+      email: email
+    })
     .fetch()
     .then(function(user) {
       if (!user) {
@@ -122,20 +132,20 @@ app.post('/login', function(req, res) {
         res.send('login');
       } else {
 
-  var dbHash = user.attributes.password;
+        var dbHash = user.attributes.password;
 
-  bcrypt.compare(password, dbHash, function(error, matches) {
-      if (matches) {
-        console.log('Approved');
-        req.session.userid = user;
-        res.send('selection');
-      } else {
-        console.log('NO');
-        res.send('login');
+        bcrypt.compare(password, dbHash, function(error, matches) {
+          if (matches) {
+            console.log('Approved');
+            req.session.userid = user;
+            res.send('selection');
+          } else {
+            console.log('NO');
+            res.send('login');
+          }
+        })
       }
     })
-    }
-  })
 });
 
 app.post('/shelterRegister', function(req, res) {
@@ -146,7 +156,9 @@ app.post('/shelterRegister', function(req, res) {
   bcrypt.hash(password, 5, function(error, hash) {
     var pass = hash;
 
-    new Shelter({ email: email })
+    new Shelter({
+        email: email
+      })
       .fetch()
       .then(function(user) {
         if (!user) {
@@ -175,7 +187,9 @@ app.post('/shelterLogin', function(req, res) {
   var email = req.query.email;
   var password = req.query.password;
 
-  var newShelter = new Shelter({ email: email })
+  var newShelter = new Shelter({
+      email: email
+    })
     .fetch()
     .then(function(shelter) {
       if (!shelter) {
@@ -183,20 +197,20 @@ app.post('/shelterLogin', function(req, res) {
         res.send('login');
       } else {
 
-  var dbHash = shelter.attributes.password;
+        var dbHash = shelter.attributes.password;
 
-  bcrypt.compare(password, dbHash, function(error, matches) {
-      if (matches) {
-        console.log('Approved');
-        req.session.userid = shelter;
-        res.send('selection');
-      } else {
-        console.log('NO');
-        res.send('login');
+        bcrypt.compare(password, dbHash, function(error, matches) {
+          if (matches) {
+            console.log('Approved');
+            req.session.userid = shelter;
+            res.send('selection');
+          } else {
+            console.log('NO');
+            res.send('login');
+          }
+        })
       }
     })
-    }
-  })
 });
 
 
@@ -204,4 +218,3 @@ app.get('/logout', function(req, res) {
   delete req.session.userid;
   res.send('login');
 });
-
