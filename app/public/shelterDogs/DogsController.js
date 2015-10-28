@@ -11,6 +11,15 @@ angular.module('fetch.shelterDogs', [])
     })
   }
 
+  // $scope.data.availability= function(dog){
+  // 	if(dog.isAvail===true){
+  // 		return "Dog is available"
+  // 	}
+  // 	else{
+  // 		return "Dog is currently fetched!"
+  // 	}
+  // }
+
   $scope.confirmReturn= function(dogID){
   	ShelterFactory.confirmReturn(dogID)
   }
