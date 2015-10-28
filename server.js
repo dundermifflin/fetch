@@ -39,51 +39,51 @@ app.post('/addDog', function(req, res) {
 })
 
 app.post('/processSelection', function(req, res) {
-    console.log('in process Selection')
-    var activity = req.query.activity;
-    Dog.query({
-      where: {
-        activity: activity,
-        isAvail: true
-      }
-    }).fetchAll().then(function(found) {
-      if (found.models.length!==0) {
-        var foundArray = found.models
-        console.log('foundArray', foundArray)
-        var lowestOuting = null;
-        var lowestCount = 100;
-        for (var i = 0; i < found.models.length; i++) {
-          console.log('foundmodeli', found.models[i])
-          if (found.models[i].attributes.outings < lowestCount) {
-            lowestCount = found.models[i].attributes.outings;
-            lowestOuting = found.models[i];
-          }
+  console.log('in process Selection')
+  var activity = req.query.activity;
+  Dog.query({
+    where: {
+      activity: activity,
+      isAvail: true
+    }
+  }).fetchAll().then(function(found) {
+    if (found.models.length !== 0) {
+      var foundArray = found.models
+      console.log('foundArray', foundArray)
+      var lowestOuting = null;
+      var lowestCount = 100;
+      for (var i = 0; i < found.models.length; i++) {
+        console.log('foundmodeli', found.models[i])
+        if (found.models[i].attributes.outings < lowestCount) {
+          lowestCount = found.models[i].attributes.outings;
+          lowestOuting = found.models[i];
         }
-        new Dog({
-          id: lowestOuting.attributes.id
-        }).save({
-          isAvail: false,
-          outings: lowestOuting.attributes.outings + 1
-        });
-        console.log('lowestOuting', lowestOuting.attributes)
-        return res.send(lowestOuting.attributes);
-      } else {
-        console.log('No dogs are available, please try again later')
       }
-    })
-    })
- 
-  //   new Dog({
-  //     activity: activity,
-  //   }).fetch({withRelated:['activity']}).then(function(found) {
-  //     if (found) {
-  //       console.log('FOUND: ', found)
-  //       res.send(found.attributes);
-  //     } else {
-  //       console.log('not found bro')
-  //     }
-  //   });
-  // });
+      new Dog({
+        id: lowestOuting.attributes.id
+      }).save({
+        isAvail: false,
+        outings: lowestOuting.attributes.outings + 1
+      });
+      console.log('lowestOuting', lowestOuting.attributes)
+      return res.send(lowestOuting.attributes);
+    } else {
+      console.log('No dogs are available, please try again later')
+    }
+  })
+})
+
+//   new Dog({
+//     activity: activity,
+//   }).fetch({withRelated:['activity']}).then(function(found) {
+//     if (found) {
+//       console.log('FOUND: ', found)
+//       res.send(found.attributes);
+//     } else {
+//       console.log('not found bro')
+//     }
+//   });
+// });
 
 
 app.listen(app.get('port'), function() {
@@ -224,6 +224,18 @@ app.post('/shelterLogin', function(req, res) {
     })
 });
 
+app.post('/loadDogs', function(req,res){
+  Dog.fetchAll()
+  .then(function(dogs){
+  var dogModels= dogs.models
+  var result=[];
+  for (var i=0; i<dogs.models.length; i++){
+    result.push(dogs.models[i].attributes)
+  }
+  console.log('RESULT', result)
+  res.send(result)
+  })
+})
 
 app.get('/logout', function(req, res) {
   delete req.session.userid;
