@@ -73,6 +73,17 @@ app.post('/processSelection', function(req, res) {
   })
 })
 
+app.post('/confirmReturn', function(req, res) {
+  console.log('in confirm Return')
+  console.log(req.query)
+  var id= req.query.id
+  new Dog({
+    id: id
+  }).save({
+    isAvail: true
+  })
+})
+
 //   new Dog({
 //     activity: activity,
 //   }).fetch({withRelated:['activity']}).then(function(found) {
@@ -224,17 +235,17 @@ app.post('/shelterLogin', function(req, res) {
     })
 });
 
-app.post('/loadDogs', function(req,res){
+app.post('/loadDogs', function(req, res) {
   Dog.fetchAll()
-  .then(function(dogs){
-  var dogModels= dogs.models
-  var result=[];
-  for (var i=0; i<dogs.models.length; i++){
-    result.push(dogs.models[i].attributes)
-  }
-  console.log('RESULT', result)
-  res.send(result)
-  })
+    .then(function(dogs) {
+      var dogModels = dogs.models
+      var result = [];
+      for (var i = 0; i < dogs.models.length; i++) {
+        result.push(dogs.models[i].attributes)
+      }
+      console.log('RESULT', result)
+      res.send(result)
+    })
 })
 
 app.get('/logout', function(req, res) {
