@@ -18,11 +18,18 @@ angular.module('fetch.selection', [])
         $scope.deletedConfirm = 'Deleted';
         $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
           console.log('selection response', response.data)
-          $state.go('confirmation', {
-            dog: JSON.stringify(response.data)
-          }, {
-            location: false
-          });
+          if (response.data == 'notAvailable') {
+            $confirm({
+              title:"No " + typeSelected + " dogs are available please select another dog",
+              text:"Try one of our other dogs" 
+            })
+          } else {
+            $state.go('confirmation', {
+              dog: JSON.stringify(response.data)
+            }, {
+              location: false
+            });
+          }
         });
       });
 
