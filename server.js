@@ -193,7 +193,7 @@ app.post('/shelterRegister', function(req, res) {
           newShelter.save()
             .then(function(newShelter) {
               req.session.userid = newShelter;
-              res.send('selection');
+              res.send('shelterForm');
             });
         } else {
           console.log('Shelter already exists');
@@ -225,7 +225,7 @@ app.post('/shelterLogin', function(req, res) {
           if (matches) {
             console.log('Approved');
             req.session.userid = shelter;
-            res.send('selection');
+            res.send('shelterDogs');
           } else {
             console.log('NO');
             res.send('login');
