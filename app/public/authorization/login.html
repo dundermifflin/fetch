@@ -1,23 +1,35 @@
 <div ng-controller="AuthorizationController">
-    <h1 id="loginSlogan"> Ready to fetch your furry friend?</h1>
-    <form name="form" class="css-form">
-
-        Email
-        <input type="email" ng-model="user.email" name="email" required="" /> <br />
-        
-        Password
-        <input name="password" ng-model="user.password" id="password" type="password" title="Enter your password" required=""> <br/>
-
-        <div ng-show="form.$submitted || form.userame.$touched">
-            <div ng-show="form.uName.$error.required">Please enter your username</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <h1 id="loginSlogan"> Ready to fetch your furry friend?</h1>
+                <form name="userLoginForm" novalidate class="css-form" ng-submit="userLoginForm.$valid && login(user)">
+                    Email
+                    <input type="email" ng-model="user.email" name="email" required placeholder="js@gmail.com" />
+                    <span class="error" ng-show="userLoginForm.email.$touched && userLoginForm.email.$invalid">Please make sure your email is valid.</span>
+                    <br /> Password
+                    <input name="password" ng-model="user.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
+                    <span class="error" ng-show="userLoginForm.password.$error.minlength">Please choose a password longer than 8 characters</span>
+                    <br/>
+                    <input type="submit" class="btn btn-default login" value="Login" ng-disabled="userLoginForm.$invalid">
+                    </button>
+                </form>
+                <div>Not a user yet?
+                    <a href="/#/userRegistration">Register
+                </div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
+<<<<<<< HEAD
     </form>
 
     <button type="submit" class="btn btn-primary btn-xl" ng-click="login(user)">Log In</button>
     <!-- <button type="submit" class="btn btn-default login" ng-click="register(user)">Register</button> -->
     <div>Not a user yet? 
       <a href="/#/userRegistration">Register  
+=======
+        <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
+>>>>>>> b92a174eaab2ff9aa7a72286111208586dd20f72
     </div>
-    <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
-
 </div>

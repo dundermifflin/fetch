@@ -291,8 +291,8 @@ header .header-content .header-content-inner p {
     height: 80px;
     width: 150px;
     color: white;
-    margin-left: 200px;
-    margin-top: 200px;
+    margin-left: 100px;
+    float: left;
 }
 
 .col-sm-3.fetch-col {
@@ -377,6 +377,7 @@ h1 #loginSlogan {
     position: fixed;
     right: 0;
     bottom: 0;
+    z-index: -100;
 }
 
 a.paw {

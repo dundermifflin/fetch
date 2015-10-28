@@ -1,6 +1,6 @@
 angular.module('fetch.selection', [])
 
-.controller('SelectionController', ['$scope', '$state', 'DogFactory', function($scope, $state, DogFactory) {
+.controller('SelectionController', ['$scope', '$state', 'DogFactory', '$modal', '$confirm', function($scope, $state, DogFactory, $modal, $confirm) {
   $scope.data = {};
 
   $scope.processSelection = function(typeSelected) {
@@ -8,27 +8,30 @@ angular.module('fetch.selection', [])
       //send type selected to DogFactory to process query in server
 
     $scope.hover = function(activity) {
-      console.log('hoveringgggg')
-      this.hoverEdit = true;
       return $scope.activity.show === true;
     }
-
-    $scope.hoverIn = function() {
-      this.hoverEdit = true;
-    }
-
-    $scope.hoverOut = function() {
-      this.hoverEdit = false;
-    }
-
-    $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
-      console.log('selection response', response.data)
-      $state.go('confirmation', {
-        dog: JSON.stringify(response.data)
-      }, {
-        location: false
+    $confirm({
+        title: "Please confirm your Dog",
+        text: 'You selected a ' + typeSelected + ' dog'
+      })
+      .then(function() {
+        $scope.deletedConfirm = 'Deleted';
+        $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
+          console.log('selection response', response.data)
+          if (response.data == 'notAvailable') {
+            $confirm({
+              title:"No " + typeSelected + " dogs are available please select another dog",
+              text:"Try one of our other dogs" 
+            })
+          } else {
+            $state.go('confirmation', {
+              dog: JSON.stringify(response.data)
+            }, {
+              location: false
+            });
+          }
+        });
       });
-    });
 
   }
 }]);
