@@ -1,8 +1,95 @@
-<div class='chooseLogin'>
+<!-- <div class='chooseLogin'>
   <span>
     <button type="submit" class="btn btn-default choose" ng-click="userRedirect()">User Login</button>
     <button type="submit" class="btn btn-default choose" ng-click="shelterRedirect()">Shelter Login</button>
   </span>
   <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
-</div>
+</div> -->
+<div ng-controller="AuthorizationController">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" a ng-click="scrollTo('about')">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" a ng-click="scrollTo('services')">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" a ng-click="scrollTo('contact')">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+        	<hr>
+            <h1>Your best friend- <br/> now on-demand.</h1>
+            <hr>
+            <a ng-click="scrollTo('about')" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+        </div>
+    </div>
+</header>
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">What's our story?</h2>
+                <hr class="light">
+                <p class="text-faded">San Francisco is one of the most dog friendly cities in the country, but there are so many people who aren't allowed to have dogs or simply don't have the time or money. At the same time, there are hundreds of lovable pets waiting to find their forever home that need a friend. Fetch is bringing the two together!</p>
+                <a href="#" class="btn btn-default btn-xl" ng-click="userRedirect()">Ready to Fetch? Sign up now!</a>
+                <a href="#" class="btn btn-default btn-xl" ng-click="shelterRedirect()">Register your shelter today!</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">How Fetch Works</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-map wow bounceIn text-primary"></i>
+                    <h3>We Connect With Shelters</h3>
+                    <p class="text-muted">Our mission is centered on connecting dogs in need with people who love dogs. We let local shelters add dogs based on availability.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-paw wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                    <h3>You Choose Your Activity</h3>
+                    <p class="text-muted">We have four different selections for you to make based on the activity you would like your fetch to join you on!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-car wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                    <h3>Your Pup Is Delivered</h3>
+                    <p class="text-muted">Fetch works with your location to bring you a dog as quickly as we can- usually it will take 15-20 minutes. Once your fetch has arrived, it's playtime for two whole hours!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                    <h3>Bring Back or Adopt!</h3>
+                    <p class="text-muted">At the end of your fetch session, you can simply drop off your new friend at the shelter. We know it's hard to say goodbye to these lovable pups, so at the end of every fetch you have the option to Adopt!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+</div>
