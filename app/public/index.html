@@ -2,14 +2,20 @@
 <html ng-app="fetch">
 
 <head>
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <!--     <link href="https://fonts.googleapis.com/css?family=Leckerli+One" rel="stylesheet" type="text/css">
- -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'
     <link href='https://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/assets/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
     <script src="/angular/angular.js"></script>
+    <script src="/angular-google-maps/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="https://rawgit.com/angular-ui/angular-google-maps/2.2.1/dist/angular-google-maps.min.js"></script>
+
     <script src="/angular-ui-router/build/angular-ui-router.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>

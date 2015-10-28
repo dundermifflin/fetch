@@ -1,8 +1,14 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'fetch.shelterDogs', 'ui.router'])
+angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'fetch.shelterDogs', 'ui.router', 'uiGmapgoogle-maps'])
 
-.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
+
+  uiGmapGoogleMapApiProvider.configure({
+    key: 'AIzaSyDcBHkUsmjz7446x3lSUn3Gayuni5Ddn34',
+    v: '3.20',
+    libraries: 'weather,geometry,visualization'
+  });
 
   $urlRouterProvider.otherwise('/chooseLogin');
 

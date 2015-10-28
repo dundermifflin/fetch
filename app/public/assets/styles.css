@@ -11,6 +11,10 @@
     width: 25%;
 }
 
+.angular-google-map-container {
+    height: 400px;
+ }
+
 /*#shelterDogs {
     border-top: 5px solid black;
     margin-bottom: 5px;
@@ -140,10 +144,9 @@ h1 #loginSlogan {
 }
 
 .dogPhoto {
-    width: 50%;
+    width: 750px;
+    height: 500px;
     position: fixed;
-    right: 0;
-    bottom: 0;
 }
 
 a.paw {
