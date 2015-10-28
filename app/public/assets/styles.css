@@ -6,6 +6,11 @@
     font-weight: 300;
 }
 
+#search {
+    margin-bottom: 10px;
+    width: 25%;
+}
+
 #shelterDogs {
     border-top: 5px solid black;
     margin-bottom: 5px;
@@ -13,6 +18,8 @@
 
 .img-responsive {
     width: 200px;
+    float: center;
+    margin-top: 10px;
 }
 
 #name {
