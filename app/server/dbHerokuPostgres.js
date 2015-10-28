@@ -3,14 +3,14 @@ var pg = require('pg');
 var localPWD;
 
 try {
-  localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
-} catch (ex) {
-  console.log(ex);
+  // localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
   localPWD = {
     user: DATABASE_URL.split(':')[1].slice(2),
     password: DATABASE_URL.split(':')[2].split('@')[0],
     database: DATABASE_URL.split(':')[3].split('/')[1]
   };
+} catch (ex) {
+  console.log(ex);
 //   localPWD = {
 //   host: "ec2-107-21-219-142.compute-1.amazonaws.com",
 //   port: "5432",
