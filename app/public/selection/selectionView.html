@@ -3,7 +3,7 @@
     <div class="selectionContainer">
         <div class="row">
 
-            <div class="col-sm-3 fetch-col" ng-mouseover="friendHover=true" ng-mouseleave="friendHover=false">
+            <div class="col-sm-3 fetch-col" ng-click="processSelection('Friend')" ng-mouseover="friendHover=true" ng-mouseleave="friendHover=false">
                 <h2>FetchFRIEND</h2>
                 <img class='select' src='http://justcuteanimals.com/wp-content/uploads/2014/11/happy-puppy-pictures-smile-cute-animals-dogs-pics.jpg'>
 
@@ -12,21 +12,21 @@
                 <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Friend')">Fetch Me</button>
             </div>
 
-            <div class="col-sm-3 fetch-col" ng-mouseover="familyHover=true" ng-mouseleave="familyHover=false">
+            <div class="col-sm-3 fetch-col" ng-click="processSelection('Family')" ng-mouseover="familyHover=true" ng-mouseleave="familyHover=false">
                 <h2>FetchFAMILY</h2>
                 <img class='select' src='http://static4.shop033.com/resources/18/160536/picture/7B/85918843.jpg'>
                    <p ng-show="familyHover">This calm, careful pooch loves kids and gets along great at family picnics and afterschool birthday parties!</p>
                 <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Family')">Fetch Me</button>
             </div>
 
-            <div class="col-sm-3 fetch-col" ng-mouseover="fitHover=true" ng-mouseleave="fitHover=false" >
+            <div class="col-sm-3 fetch-col" ng-click="processSelection('Fit')" ng-mouseover="fitHover=true" ng-mouseleave="fitHover=false" >
                 <h2>FetchFIT</h2>
                 <img class='select' src='http://c.photoshelter.com/img-get/I0000K.K0YPa18a4/s/710/east-sooke-hiking-dog-0096.jpg'>
                  <p ng-show="fitHover">Strong fast running companions will cheer you on and keep you moving! They're excited to explore for hours, and a great way to keep up the pace on the trail!</p>
                 <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Fit')">Fetch Me</button>
             </div>
 
-            <div class="col-sm-3 fetch-col" ng-mouseover="forceHover=true" ng-mouseleave="forceHover=false">
+            <div class="col-sm-3 fetch-col" ng-click="processSelection('Force')" ng-mouseover="forceHover=true" ng-mouseleave="forceHover=false">
                 <h2>FetchFORCE</h2>
                 <img class='select' src='https://s3.amazonaws.com/cms-biglife/files/photos/839/images/large.jpeg?1369008408'>
                 <p ng-show="forceHover">Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.<p>
