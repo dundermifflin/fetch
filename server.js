@@ -68,6 +68,7 @@ app.post('/processSelection', function(req, res) {
       console.log('lowestOuting', lowestOuting.attributes)
       return res.send(lowestOuting.attributes);
     } else {
+      return res.send('notAvailable');
       console.log('No dogs are available, please try again later')
     }
   })
