@@ -9,16 +9,11 @@ angular.module('fetch.services', [])
       params: {
         activity: input
       }
-    }).then(function(response) {
-      toggleAvail(response);
-      return response;
-    });
+    })
   };
 
 
-  var toggleAvail = function(response) {
 
-  };
 
   return {
     processSelection: processSelection
@@ -41,9 +36,22 @@ angular.module('fetch.services', [])
       })
   }
 
-  return {
-    addDog: addDog
+  var loadDogs = function() {
+    return $http({
+        method: 'POST',
+        url: '/loadDogs',
+      })
+      .then(function(resp) {
+        console.log('resp:', resp.data)
+        return resp.data;
+      })
   }
+
+  return {
+    addDog: addDog,
+    loadDogs: loadDogs
+  }
+
 }])
 
 .factory('AuthorizationFactory', ['$http', '$state', function($http, $state) {

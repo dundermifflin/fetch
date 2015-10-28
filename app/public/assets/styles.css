@@ -8,8 +8,38 @@
     font-weight: 300;
 }
 
+#search {
+    margin-bottom: 10px;
+    width: 25%;
+}
+
+#shelterDogs {
+    border-top: 5px solid black;
+    margin-bottom: 5px;
+}
+
+.img-responsive {
+    width: 200px;
+    float: center;
+    margin-top: 10px;
+}
+
+#name {
+    width: 100px;
+    height: auto;
+}
+
 .btn.choose:hover {
     background-color: #FF9A7A;
+}
+
+.return {
+    margin-top: 5px;
+    background-color: #4C5FB2;
+    position: relative;
+    color: white;
+    float: right;
+    width: 150px;
 }
 
 .fetchMe {
@@ -117,7 +147,6 @@ h1 #loginSlogan {
     right: 0;
     bottom: 0;
 }
-
 
 a.paw {
     -webkit-font-smoothing: antialiased;
