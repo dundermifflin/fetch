@@ -4,32 +4,37 @@ angular.module('fetch.authorization', [])
 
 
 //  ADDED authorizationController: FILL ME IN!!!
-.controller('AuthorizationController', ['$scope', '$state', 'AuthorizationFactory', function($scope, $state, AuthorizationFactory) {
+.controller('AuthorizationController', ['$scope', '$state', '$location','$anchorScroll','AuthorizationFactory', function($scope, $state, $location, $anchorScroll, AuthorizationFactory) {
 
-    $scope.user = {};
+  $scope.user = {};
 
-    $scope.userRedirect = function() {
-      $state.go('login');
-    }
+  $scope.scrollTo = function(id) {
+    $location.hash(id);
+    $anchorScroll();
+  }
 
-    $scope.shelterRedirect = function() {
-      $state.go('shelterLogin');
-    }
+  $scope.userRedirect = function() {
+    $state.go('login');
+  }
 
-    $scope.login = function(user) {
-      AuthorizationFactory.login(user);
-    }
+  $scope.shelterRedirect = function() {
+    $state.go('shelterLogin');
+  }
 
-    $scope.register = function(user) {
-      AuthorizationFactory.register(user);
-    }
+  $scope.login = function(user) {
+    AuthorizationFactory.login(user);
+  }
 
-    $scope.shelterLogin = function(shelter) {
-      AuthorizationFactory.shelterLogin(shelter);
-    }
+  $scope.register = function(user) {
+    AuthorizationFactory.register(user);
+  }
 
-    $scope.shelterRegister = function(shelter) {
-      AuthorizationFactory.shelterRegister(shelter);
-    }
+  $scope.shelterLogin = function(shelter) {
+    AuthorizationFactory.shelterLogin(shelter);
+  }
+
+  $scope.shelterRegister = function(shelter) {
+    AuthorizationFactory.shelterRegister(shelter);
+  }
 
 }]);
