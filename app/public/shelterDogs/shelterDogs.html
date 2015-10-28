@@ -1,8 +1,18 @@
-<div>
-    <div class="row">
-        <div class= 'dogDescription' class="col-md-6 col-sm-6">
-        <h1>It works</h1>
-
+<div ng-controller="DogsController">
+    <div>
+        <input type='search' id='search' placeholder='Search for your pup!' class='form-control' ng-model='search'>
+    </div>
+    <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-init='data'>
+        <div class="row" id='shelterDogs'>
+            <div class="col-md-3">
+                <img class="img-responsive" id="descriptionPhoto" ng-src='{{dog.photoUrl}}' alt="">
+            </div>
+            <div class="col-md-9">
+                <h3>{{dog.name}}</h3>
+                <h4>Your furry friend has been fetched {{dog.outings}} time(s)!</h4>
+                <p>{{dog.blurb}}</p>
+                <a class="btn btn-primary" ng-click="confirmReturn('{{dog.id}}')"> Confirm Return <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
         </div>
     </div>
 </div>
