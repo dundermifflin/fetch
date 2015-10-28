@@ -41,7 +41,6 @@ app.post('/addDog', function(req, res) {
 app.post('/processSelection', function(req, res) {
     console.log('in process Selection')
     var activity = req.query.activity;
-
     Dog.query({
       where: {
         activity: activity
@@ -58,6 +57,12 @@ app.post('/processSelection', function(req, res) {
           lowestOuting = found.models[i];
         }
       }
+      new Dog({
+          id: lowestOuting.attributes.id
+        }).save({
+          isAvail: false,
+          outings: lowestOuting.attributes.outings+1
+        });
       console.log('lowestOuting', lowestOuting.attributes)
       return res.send(lowestOuting.attributes);
     })
