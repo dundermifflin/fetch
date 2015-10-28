@@ -36,6 +36,16 @@ angular.module('fetch.services', [])
       })
   }
 
+  var confirmReturn = function(dogID) {
+    return $http({
+      method: 'POST',
+      url: '/confirmReturn',
+      params: {
+        id: dogID
+      }
+    })
+  }
+
   var loadDogs = function() {
     return $http({
         method: 'POST',
@@ -49,6 +59,7 @@ angular.module('fetch.services', [])
 
   return {
     addDog: addDog,
+    confirmReturn: confirmReturn,
     loadDogs: loadDogs
   }
 

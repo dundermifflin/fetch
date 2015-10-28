@@ -10,5 +10,10 @@ angular.module('fetch.shelterDogs', [])
       console.log('dogresult', result)
     })
   }
+
+  $scope.confirmReturn= function(dogID){
+  	ShelterFactory.confirmReturn(dogID)
+  }
+
   $scope.loadDogs();
 }])
