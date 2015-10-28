@@ -8,18 +8,9 @@ angular.module('fetch.selection', [])
       //send type selected to DogFactory to process query in server
 
     $scope.hover = function(activity) {
-      console.log('hoveringgggg')
-      this.hoverEdit = true;
       return $scope.activity.show === true;
     }
 
-    $scope.hoverIn = function() {
-      this.hoverEdit = true;
-    }
-
-    $scope.hoverOut = function() {
-      this.hoverEdit = false;
-    }
 
     $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
       console.log('selection response', response.data)
