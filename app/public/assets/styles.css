@@ -244,6 +244,11 @@ header .header-content .header-content-inner p {
 }
 
 
+.angular-google-map-container {
+    height: 400px;
+ }
+
+
 /*#shelterDogs {
     border-top: 5px solid black;
     margin-bottom: 5px;
@@ -373,11 +378,8 @@ h1 #loginSlogan {
 }
 
 .dogPhoto {
-    width: 50%;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -100;
+    width: 750px;
+    height: 500px;
 }
 
 a.paw {
