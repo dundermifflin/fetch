@@ -1,7 +1,21 @@
 <div ng-controller="ConfirmationController">
-    <div class="container text-left">
-        <img class='dogPhoto' ng-src={{dog.photoUrl}}>
-        <p> {{ dog.name }} is on {{dog.gender}} way! </p>
-        <p> {{ dog.blurb }} </p>
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header"> Meet {{ dog.name }}! 
+            </h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+            <img ng-src="{{ dog.photoUrl }}"> 
+          </div>
+
+          <div class="col-md-4">
+            <h2>{{ dog.name }} is on {{ dog.gender }} way</h2>
+            <p>{{ dog.blurb }}</p>
+          </div>
+        </div>
     </div>
 </div>
