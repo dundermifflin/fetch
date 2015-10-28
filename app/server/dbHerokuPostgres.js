@@ -6,19 +6,19 @@ try {
   localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
 } catch (ex) {
   console.log(ex);
-  // localPWD = {
-  //   user: process.env.DATABASE_URL.split(':')[1].slice(2),
-  //   password: process.env.DATABASE_URL.split(':')[2].split('@')[0],
-  //   database: process.env.DATABASE_URL.split(':')[3].split('/')[1]
-  // };
   localPWD = {
-  host: "ec2-107-21-219-142.compute-1.amazonaws.com",
-  port: "5432",
-  user: "zjplyeljrfseij",
-  password: "7oNFzi5iaSuixF6kqYyyRLQM14",
-  database: "d7f6r0ms273te6",
-  ssl: true
-};
+    user: DATABASE_URL.split(':')[1].slice(2),
+    password: DATABASE_URL.split(':')[2].split('@')[0],
+    database: DATABASE_URL.split(':')[3].split('/')[1]
+  };
+//   localPWD = {
+//   host: "ec2-107-21-219-142.compute-1.amazonaws.com",
+//   port: "5432",
+//   user: "zjplyeljrfseij",
+//   password: "7oNFzi5iaSuixF6kqYyyRLQM14",
+//   database: "d7f6r0ms273te6",
+//   ssl: true
+// };
 
 }
 
