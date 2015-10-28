@@ -1,6 +1,6 @@
 angular.module('fetch.selection', [])
 
-.controller('SelectionController', ['$scope', '$state', 'DogFactory', function($scope, $state, DogFactory) {
+.controller('SelectionController', ['$scope', '$state', 'DogFactory', '$modal', '$confirm', function($scope, $state, DogFactory, $modal, $confirm) {
   $scope.data = {};
 
   $scope.processSelection = function(typeSelected) {
@@ -10,16 +10,21 @@ angular.module('fetch.selection', [])
     $scope.hover = function(activity) {
       return $scope.activity.show === true;
     }
-
-
-    $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
-      console.log('selection response', response.data)
-      $state.go('confirmation', {
-        dog: JSON.stringify(response.data)
-      }, {
-        location: false
+    $confirm({
+        title: "Please confirm your Dog",
+        text: 'You selected a ' + typeSelected + ' dog'
+      })
+      .then(function() {
+        $scope.deletedConfirm = 'Deleted';
+        $scope.data = DogFactory.processSelection(typeSelected).then(function(response) {
+          console.log('selection response', response.data)
+          $state.go('confirmation', {
+            dog: JSON.stringify(response.data)
+          }, {
+            location: false
+          });
+        });
       });
-    });
 
   }
 }]);
