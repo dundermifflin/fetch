@@ -1,25 +1,39 @@
 <div ng-controller="AuthorizationController">
-    <h1 id="loginSlogan"> Join Fetch today!</h1>
-    <form name="form" class="css-form">
-        Shelter Name
-        <input type="text" ng-model="shelter.displayName" name="displayName" required="" /> <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <h1 id="loginSlogan"> Join Fetch today!</h1>
+                <form name="shelterRegistrationForm" class="css-form" novalidate ng-submit="shelterRegister(shelter)">
+                    Shelter Name
+                    <input type="text" ng-model="shelter.displayName" name="displayName" required placeholder="Shelter Name" ng-minlength="2"/>
+                    <span class="error" ng-show="shelterRegistrationForm.displayName.$error.minlength">Please add a shelter name more than 2 characters long.</span>
+                    <br />
 
-        Zip Code
-        <input type="text" ng-model="shelter.zip" name="zip" required="" /> <br />
 
-        Email
-        <input type="email" ng-model="shelter.email" name="email" required="" /> <br />
+                    Zip Code
+                    <input type="text" ng-model="shelter.zip" name="zip" required ng-maxlength="5" ng-minlength="5" placeholder="12345" />
+                    <span class="error" ng-show="shelterRegistrationForm.zip.$error.minlength">5 digit USA zipcode</span>
+                    <br />
 
-        Password
-        <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required=""> <br/>
 
-        <div ng-show="form.$submitted || form.userame.$touched">
-            <div ng-show="form.uName.$error.required">Please enter your username</div>
+                    Email
+                    <input type="email" ng-model="shelter.email" name="email" required placeholder="js@gmail.com"/>
+                    <span class="error" ng-show="shelterRegistrationForm.email.$touched && shelterRegistrationForm.email.$invalid">Please make sure your email is valid.</span>
+                    <br />
+
+
+                    Password
+                    <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
+                    <span class="error" ng-show="shelterRegistrationForm.password.$error.minlength">Please choose a password longer than 8 characters</span>
+                    <br/>
+                <input type="submit" class="btn btn-default login" value="Register" ng-disabled="shelterRegistrationForm.$invalid">
+                    </button>
+
+                </form>
+            </div>
+            <div class="col-md-1"></div>
         </div>
-    </form>
-    
-    <button type="submit" class="btn btn-default login" ng-click="shelterRegister(shelter)">Register</button>
-    
-    
-    <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
+        <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
+    </div>
 </div>
