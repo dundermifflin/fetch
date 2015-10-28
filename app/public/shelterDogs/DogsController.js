@@ -1,8 +1,14 @@
 angular.module('fetch.shelterDogs', [])
 
 .controller('DogsController', ['$scope', 'ShelterFactory', function($scope, ShelterFactory) {
-  $scope.loadDogs = function(shelterID) {
-    ShelterFactory.loadDogs(shelterID);
-  }
 
+  $scope.data = [];
+
+  $scope.loadDogs = function() {
+    ShelterFactory.loadDogs().then(function(result) {
+      $scope.data = result;
+      console.log('dogresult', result)
+    })
+  }
+  $scope.loadDogs();
 }])
