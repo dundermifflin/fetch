@@ -1,6 +1,7 @@
 var path = require('path');
 var pg = require('pg');
 var localPWD;
+var DATABASE_URL = process.env['DATABASE_URL'];
 
 try {
   // localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
