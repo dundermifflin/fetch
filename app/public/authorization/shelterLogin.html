@@ -10,7 +10,7 @@
                     <span class="error" ng-show="shelterLoginForm.email.$touched && shelterLoginForm.email.$invalid">Please make sure your email is valid.</span>
                     <br /> Password
                     <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
-                    <span class="error" ng-show="shelterLoginForm.password.$error.minlength">Please choose a password longer than 8 characters</span>
+                    <span class="error" ng-show="shelterLoginForm.password.$error.minlength">Please enter a valid password.</span>
                     <br/>
                     <input type="submit" class="btn btn-default login" value="Login" ng-disabled="shelterLoginForm.$invalid">
                     </button>

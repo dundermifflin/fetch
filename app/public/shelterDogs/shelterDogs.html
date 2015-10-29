@@ -1,6 +1,7 @@
 <div ng-controller="DogsController">
     <div>
         <input type='search' id='search' placeholder='Search for your pup!' class='form-control' ng-model='search'>
+        <a href="./#/addDog">Add a new Furry Friend!</a>
     </div>
     <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-init='data'>
         <div class="row" id='shelterDogs'>
