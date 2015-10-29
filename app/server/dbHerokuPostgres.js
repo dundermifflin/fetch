@@ -13,14 +13,7 @@ try {
   //   password: process.env.DATABASE_URL.split(':')[2].split('@')[0],
   //   database: process.env.DATABASE_URL.split(':')[3].split('/')[1]
   // };
-  localPWD = {
-    host: "ec2-107-21-219-142.compute-1.amazonaws.com",
-    port: "5432",
-    user: "zjplyeljrfseij",
-    password: "7oNFzi5iaSuixF6kqYyyRLQM14",
-    database: "d7f6r0ms273te6",
-    ssl: true
-  };
+
 }
 
 // Use a connection object; do NOT try using a connection url. Known issue.
