@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "node server.js",
-    "postinstall": "getDATABASE_URL.js"
+    "postinstall": "console.log("hi")"
   },
   "repository": {
     "type": "git",
