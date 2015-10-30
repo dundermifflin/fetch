@@ -1,7 +1,7 @@
 var path = require('path');
 var pg = require('pg');
 var localPWD;
-
+console.log("Hello")
 try {
   localPWD = require('../../localPWD.js'); //download this and save it in the root of /fetch
   // var DATABASE_URL = process.env['DATABASE_URL'] || process.env.DATABASE_URL;
@@ -13,6 +13,14 @@ try {
   //   password: process.env.DATABASE_URL.split(':')[2].split('@')[0],
   //   database: process.env.DATABASE_URL.split(':')[3].split('/')[1]
   // };
+localPWD = {
+  host: "ec2-107-21-219-142.compute-1.amazonaws.com",
+  port: "5432",
+  user: "zjplyeljrfseij",
+  password: "7oNFzi5iaSuixF6kqYyyRLQM14",
+  database: "d7f6r0ms273te6",
+  ssl: true
+};
 
 }
 
