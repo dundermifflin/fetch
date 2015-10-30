@@ -30,6 +30,7 @@
     "angular": "^1.4.7",
     "angular-google-maps": "^2.2.1",
     "angular-router": "0.0.2",
+    "angular-simple-logger": "^0.1.5",
     "angular-ui-router": "^0.2.15",
     "bcrypt": "^0.8.5",
     "bluebird": "^2.10.2",
