@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js",
-    "postinstall": "node getDATABASE_URL.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",

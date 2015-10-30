@@ -21,3 +21,4 @@ module.exports = {
 //   console.log(module.exports.password);
 // });
 
+// ,    "postinstall": "node getDATABASE_URL.js"
