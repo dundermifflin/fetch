@@ -15,9 +15,9 @@ module.exports = {
   ssl: true
 };
 
-fs.writeFile('localPWD.js', 'module.exports = ' + module.exports, function (err) {
-  if (err) throw err;
-  console.log('It\'s saved!');
-  console.log(module.exports.password);
-});
+// fs.writeFile('localPWD.js', 'module.exports = ' + module.exports + '; \n', function (err) {
+//   if (err) throw err;
+//   console.log('It\'s saved!');
+//   console.log(module.exports.password);
+// });
 
