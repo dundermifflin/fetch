@@ -3,21 +3,19 @@ angular.module('fetch.confirmation', [])
 .controller('ConfirmationController', ['$scope', '$state', 'uiGmapGoogleMapApi', function($scope, $state, uiGmapGoogleMapApi) {
 
   uiGmapGoogleMapApi.then(function(maps) {
+
     $scope.map = {
-      center: {
-        latitude: 37.8,
-        longitude: -122.4
-      },
+      center: { latitude: 37.772, longitude: -122.423 },
       zoom: 13
     };
   });
 
   $scope.marker = {
-    id: 0,
+    idKey: 0,
     coords: {
-      // SPCA Outreach
-      latitude: 37.8,
-      longitude: 122.4
+      // SF SPCA Mission Adoption Center
+      latitude: 37.772,
+      longitude: -122.423
     }
   };
 

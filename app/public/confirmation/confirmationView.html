@@ -17,13 +17,13 @@
             <h2>{{ dog.name }} is on {{ dog.gender }} way</h2>
             <p>{{ dog.blurb }}</p>
 
-            <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-
-            <ui-gmap-marker
-              idKey='marker.id'
-              coords='marker.coords'
-              >
-            </ui-gmap-marker>
+            <ui-gmap-google-map center="map.center" zoom="map.zoom">
+              <ui-gmap-marker
+                idKey= "marker.idKey" 
+                coords="marker.coords"
+                >
+              </ui-gmap-marker>
+            </ui-gmap-google-map>
 
           </div>
         </div>
