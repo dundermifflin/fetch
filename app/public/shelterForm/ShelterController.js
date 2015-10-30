@@ -7,7 +7,7 @@ angular.module('fetch.shelter', [])
     photoUrl: null,
     breed: null,
     activity: null,
-    isMale: 0 //will be a boolean value 
+    isMale: true //will be a boolean value 
   }
 
 
