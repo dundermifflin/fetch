@@ -1,7 +1,7 @@
 var path = require('path');
 var pg = require('pg');
 var localPWD;
-console.log("=====================\n\n")
+console.log("=====================\n\nChatter from actual dbHerokuPostgres.js\n")
 console.log(process.env.DATABASE_URL)
 console.log("\n\n=====================\n\n")
 try {
