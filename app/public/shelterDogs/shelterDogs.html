@@ -1,19 +1,40 @@
 <div ng-controller="DogsController">
     <div>
-        <input type='search' id='search' placeholder='Search for your pup!' class='form-control' ng-model='search'>
-        <a href="./#/addDog">Add a new Furry Friend!</a>
-    </div>
-    <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-init='data'>
-        <div class="row" id='shelterDogs'>
-            <div class="col-md-3">
-                <img class="img-responsive" id="descriptionPhoto" ng-src='{{dog.photoUrl}}' alt="">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <a class="navbar-brand brand" id="brand" href="#/login">Fetch</a>
+            <!--         <a href="#/login"><i class="fa fa-paw fa-2x"></i></a>
+ -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#/addDog">Add A Dog</a>
+                    </li>
+                    <li>
+                        <a href="#/shelterDogs">View All Dogs</a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-md-9">
-                <h3>{{dog.name}}</h3>
-                <h4>Your furry friend has been fetched {{dog.outings}} time(s)!</h4>
-                <p>{{dog.blurb}}</p>
-<!--                 {{dog.availability}}
- -->                <a class="btn btn-primary" ng-click="confirmReturn(dog.id)"> Confirm Return <span class="glyphicon glyphicon-chevron-right"></span></a>
+        </nav>
+    </div>
+    <div id="search">
+        <input type='search' id='search' placeholder='Search for your pup!' class='form-control' ng-model='search'>
+    </div>
+    <div class="animate-container" id="dogRepeats">
+        <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-init='availability = checkAvail(dog.id)' ng-animate="animate">
+            <div class="row" id='shelterDogs'>
+                <div class="col-md-3">
+                    <img class="img-responsive" id="descriptionPhoto" ng-src='{{dog.photoUrl}}' alt="">
+                </div>
+                <div class="col-md-9">
+                    <h3>{{dog.name}}</h3>
+                    <h4>Your furry friend has been fetched {{dog.outings}} time(s)!</h4>
+                    <p>{{dog.blurb}}</p>
+                    <div class="availability" ng-repeat="avail in availability">
+                        {{avail.type}}
+                    </div>
+                    <a class="btn btn-primary" ng-click="confirmReturn(dog.id)"> Confirm Return <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
             </div>
         </div>
     </div>

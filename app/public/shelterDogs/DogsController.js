@@ -1,6 +1,6 @@
 angular.module('fetch.shelterDogs', [])
 
-.controller('DogsController', ['$scope', 'ShelterFactory', function($scope, ShelterFactory) {
+.controller('DogsController', ['$scope', 'ShelterFactory','$confirm', function($scope, ShelterFactory, $confirm) {
 
   $scope.data = [];
 
@@ -11,17 +11,19 @@ angular.module('fetch.shelterDogs', [])
     })
   }
 
-  // $scope.data.availability= function(dog){
-  // 	if(dog.isAvail===true){
-  // 		return "Dog is available"
-  // 	}
-  // 	else{
-  // 		return "Dog is currently fetched!"
-  // 	}
-  // }
+  $scope.checkAvail= function(dogID){
+    ShelterFactory.checkAvail(dogID).then(function(result){
+      console.log(result)
+      return result;
+    })
+  }
 
   $scope.confirmReturn= function(dogID){
-  	ShelterFactory.confirmReturn(dogID)
+  	ShelterFactory.confirmReturn(dogID);
+    $confirm({
+              title:"Thank you!",
+              text:"Your dog is now available to be fetched again!" 
+            })
   }
 
   $scope.loadDogs();

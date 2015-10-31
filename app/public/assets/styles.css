@@ -1,5 +1,40 @@
 /*//bootstrap start*/
 
+.animate-container {
+    background: white;
+    list-style: none;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.animate-repeat {
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    transition: all linear 0.2s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity: 0;
+    max-height: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 40px;
+}
+
+#dogRepeats{
+    margin-left:10px;
+}
 body {
     width: 100%;
     height: 100%;
@@ -7,6 +42,15 @@ body {
 
 body {
     font-family: Merriweather, 'Helvetica Neue', Arial, sans-serif;
+}
+
+#mainNav {
+    background-color: white;
+    color: black;
+}
+
+a#mainNav {
+    color: #222;
 }
 
 hr {
@@ -84,7 +128,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
-    color: #f05f40;
+    color: white;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -98,6 +142,10 @@ aside {
     font-size: 13px;
     font-weight: 700;
     color: #222;
+}
+
+.navbar-right {
+    padding-right: 10px;
 }
 
 .navbar-default .nav > li>a:hover,
@@ -116,13 +164,14 @@ aside {
     background-color: transparent;
 }
 
-@media(min-width:768px) {
+
+/*@media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255, 255, 255, .3);
-        background-color: transparent;
+        background-color: white;
     }
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255, 255, 255, .7);
+        color: black;
     }
     .navbar-default .navbar-header .navbar-brand:hover,
     .navbar-default .navbar-header .navbar-brand:focus {
@@ -130,7 +179,7 @@ aside {
     }
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255, 255, 255, .7);
+        color: black;
     }
     .navbar-default .nav > li>a:hover,
     .navbar-default .nav>li>a:focus:hover {
@@ -160,6 +209,7 @@ aside {
         background-color: #4C5FB2;
     }
 }
+*/
 
 header {
     position: relative;
@@ -239,14 +289,28 @@ header .header-content .header-content-inner p {
 }
 
 #search {
+    margin-left: 10px;
+    margin-top: 80px;
     margin-bottom: 10px;
-    width: 25%;
+    width: 40%;
 }
-
 
 .angular-google-map-container {
     height: 400px;
- }
+}
+
+#shelterForm {
+    margin-top: 70px;
+}
+
+#addDogButton {
+    background-color: #4C5FB2;
+    border: #4C5FB2;
+}
+
+#addDogButton:hover {
+    background-color: #FF9A7A;
+}
 
 
 /*#shelterDogs {
