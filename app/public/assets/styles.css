@@ -92,7 +92,7 @@ aside {
     text-transform: uppercase;
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
-    color: #f05f40;
+    color: white;
 }
 
 .navbar-default .navbar-header .navbar-brand:hover,
@@ -249,8 +249,9 @@ header .header-content .header-content-inner p {
 }
 
 #search {
+    margin-top: 80px;
     margin-bottom: 10px;
-    width: 25%;
+    width: 40%;
 }
 
 
@@ -258,6 +259,18 @@ header .header-content .header-content-inner p {
     height: 400px;
  }
 
+#shelterForm{
+    margin-top: 70px;
+}
+
+#addDogButton{
+    background-color: #4C5FB2;
+    border: #4C5FB2;
+}
+
+#addDogButton:hover{
+    background-color: #FF9A7A;
+}
 
 /*#shelterDogs {
     border-top: 5px solid black;
@@ -391,6 +404,7 @@ h1 #loginSlogan {
     width: 750px;
     height: 500px;
 }
+
 
 a.paw {
     -webkit-font-smoothing: antialiased;
