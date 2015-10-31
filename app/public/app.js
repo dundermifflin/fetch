@@ -1,6 +1,6 @@
 //use $routeProvider or $uiRoute to navigate templates
 
-angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'fetch.shelterDogs', 'ui.router', 'ui.bootstrap', 'angular-confirm', 'uiGmapgoogle-maps'])
+angular.module('fetch', ['fetch.authorization', 'fetch.confirmation', 'fetch.selection', 'fetch.services', 'fetch.shelter', 'fetch.shelterDogs', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'angular-confirm', 'uiGmapgoogle-maps'])
 
 .config(['$stateProvider', '$urlRouterProvider', 'uiGmapGoogleMapApiProvider', function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider) {
 

@@ -28,6 +28,7 @@
   "homepage": "https://github.com/dundermifflin/fetch#readme",
   "dependencies": {
     "angular": "^1.4.7",
+    "angular-animate": "^1.4.7",
     "angular-google-maps": "^2.2.1",
     "angular-router": "0.0.2",
     "angular-simple-logger": "^0.1.5",
