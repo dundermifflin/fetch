@@ -49,11 +49,9 @@ app.post('/processSelection', function(req, res) {
   }).fetchAll().then(function(found) {
     if (found.models.length !== 0) {
       var foundArray = found.models
-      console.log('foundArray', foundArray)
       var lowestOuting = null;
       var lowestCount = 100;
       for (var i = 0; i < found.models.length; i++) {
-        console.log('foundmodeli', found.models[i])
         if (found.models[i].attributes.outings < lowestCount) {
           lowestCount = found.models[i].attributes.outings;
           lowestOuting = found.models[i];
@@ -65,7 +63,6 @@ app.post('/processSelection', function(req, res) {
         isAvail: false,
         outings: lowestOuting.attributes.outings + 1
       });
-      console.log('lowestOuting', lowestOuting.attributes)
       return res.send(lowestOuting.attributes);
     } else {
       return res.send('notAvailable');
@@ -76,8 +73,7 @@ app.post('/processSelection', function(req, res) {
 
 app.post('/confirmReturn', function(req, res) {
   console.log('in confirm Return')
-  console.log(req.query)
-  var id= req.query.id
+  var id = req.query.id
   new Dog({
     id: id
   }).save({
@@ -236,20 +232,40 @@ app.post('/shelterLogin', function(req, res) {
     })
 });
 
-app.post('/loadDogs', function(req, res) {
-  Dog.fetchAll()
-    .then(function(dogs) {
-      var dogModels = dogs.models
-      var result = [];
-      for (var i = 0; i < dogs.models.length; i++) {
-        result.push(dogs.models[i].attributes)
-      }
-      console.log('RESULT', result)
-      res.send(result)
-    })
-})
+app.post('/checkAvail', function(req, res) {
+  console.log('server checkAvail')
+      var dogID = req.query.id;
+      console.log('dogID', dogID)
+      Dog.query({
+        where: {
+          id: dogID
+        }
+      }).fetch().then(function(found) {
+        console.log(found)
+        var availability = found.isAvail;
+        if (availability === '<Buffer 66 61 6c 73 65>') {
+          res.send("is NOT currently being fetched")
+        } else if ((availability === false) || (availability === 0)) {
+          res.send("is currently being fetched!")
+        }else{
+          res.send('i cant fix this stupid buffer')
+        }
+      })
+    });
 
-app.get('/logout', function(req, res) {
-  delete req.session.userid;
-  res.send('login');
-});
+      app.post('/loadDogs', function(req, res) {
+        Dog.fetchAll()
+          .then(function(dogs) {
+            var dogModels = dogs.models
+            var result = [];
+            for (var i = 0; i < dogs.models.length; i++) {
+              result.push(dogs.models[i].attributes)
+            }
+            res.send(result)
+          })
+      })
+
+      app.get('/logout', function(req, res) {
+        delete req.session.userid;
+        res.send('login');
+      });

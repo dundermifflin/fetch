@@ -36,6 +36,20 @@ angular.module('fetch.services', [])
       })
   }
 
+  var checkAvail = function(dogID) {
+    console.log('in checkAvail')
+    return $http({
+        method: 'POST',
+        url: '/checkAvail',
+        params: {
+          id: dogID
+        }
+      })
+      .then(function(resp) {
+        console.log('AVAILresp:', resp.data)
+        return resp.data
+      })
+  }
   var confirmReturn = function(dogID) {
     return $http({
       method: 'POST',
@@ -58,6 +72,7 @@ angular.module('fetch.services', [])
   }
 
   return {
+    checkAvail: checkAvail,
     addDog: addDog,
     confirmReturn: confirmReturn,
     loadDogs: loadDogs
