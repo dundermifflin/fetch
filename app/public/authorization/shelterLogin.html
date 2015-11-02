@@ -1,26 +1,37 @@
-<div ng-controller="AuthorizationController">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-8">
-                <h1 id="loginSlogan"> Log in to help your dogs get fetched today!</h1>
-                <form name="shelterLoginForm" novalidate class="css-form" ng-submit="shelterLoginForm.$valid && shelterLogin(shelter)">
-                    Email
-                    <input type="email" ng-model="shelter.email" name="email" required placeholder="js@gmail.com" />
-                    <span class="error" ng-show="shelterLoginForm.email.$touched && shelterLoginForm.email.$invalid">Please make sure your email is valid.</span>
-                    <br /> Password
-                    <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
-                    <span class="error" ng-show="shelterLoginForm.password.$error.minlength">Please enter a valid password.</span>
-                    <br/>
-                    <input type="submit" class="btn btn-default login" value="Login" ng-disabled="shelterLoginForm.$invalid">
-                    </button>
-                </form>
-                <div>Not a shelter yet?
-                    <a href="/#/shelterRegistration">Register
+<div ng-controller="AuthorizationController">   
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <h1 id="loginSlogan" text-align="center">Log in to help your dogs get fetched today!</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title">Shelter Login
+          <span><i class="fa fa-paw"></i></span>
+          </h3>
+        </div>  
+          <div class="panel-body">
+            <form name="shelterLoginForm" novalidate class="css-form form-horizontal row-border" ng-submit="shelterLoginForm.$valid && shelterLogin(shelter)">
+              <div class="form-group">
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-6">
+                  <input type="email" ng-model="shelter.email" name="email" required placeholder="js@gmail.com" />
                 </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div>
-        <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
-    </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Password</label>
+                <div class="col-md-6">  
+                  <input name="password" ng-model="shelter.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
+                </div>
+              </div>
+                <label class="col-md-2 control-label"></label>
+                <input type="submit" class="btn btn-default login" value="Login" ng-disabled="shelterLoginForm.$invalid">
+            </form>
+                </br>
+            <label class="col-md-2 control-label"></label>
+            <div>Not a shelter yet?
+              <a href="/#/shelterRegistration">Register
+            </div>  
+          </div>
+      </div>
+      <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
+    </div> 
 </div>
