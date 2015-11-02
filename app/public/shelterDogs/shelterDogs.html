@@ -21,7 +21,7 @@
         <input type='search' id='search' placeholder='Search for your pup!' class='form-control' ng-model='search'>
     </div>
     <div class="animate-container" id="dogRepeats">
-        <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-init='availability = checkAvail(dog.id)' ng-animate="animate">
+        <div class='animate-repeat' ng-repeat='dog in data | filter: search | orderBy: "dog.id"' ng-animate="animate">
             <div class="row" id='shelterDogs'>
                 <div class="col-md-3">
                     <img class="img-responsive" id="descriptionPhoto" ng-src='{{dog.photoUrl}}' alt="">
@@ -29,10 +29,7 @@
                 <div class="col-md-9">
                     <h3>{{dog.name}}</h3>
                     <h4>Your furry friend has been fetched {{dog.outings}} time(s)!</h4>
-                    <p>{{dog.blurb}}</p>
-                    <div class="availability" ng-repeat="avail in availability">
-                        {{avail.type}}
-                    </div>
+                    <p class="availability" ng-init='availability= checkAvail(dog.isAvail.data[0])'>Availability: {{availability}}</p>
                     <a class="btn btn-primary" ng-click="confirmReturn(dog.id)"> Confirm Return <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>

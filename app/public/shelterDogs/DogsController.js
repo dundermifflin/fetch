@@ -11,12 +11,13 @@ angular.module('fetch.shelterDogs', [])
     })
   }
 
-  $scope.checkAvail= function(dogID){
-    ShelterFactory.checkAvail(dogID).then(function(result){
-      console.log(result)
-      return result;
-    })
-  }
+  $scope.checkAvail= function(dogAvail){
+   if(dogAvail=== 116){
+    return "Currently Available"
+   } else{
+    return "Currently Fetched"
+   }
+ }
 
   $scope.confirmReturn= function(dogID){
   	ShelterFactory.confirmReturn(dogID);

@@ -232,40 +232,20 @@ app.post('/shelterLogin', function(req, res) {
     })
 });
 
-app.post('/checkAvail', function(req, res) {
-  console.log('server checkAvail')
-      var dogID = req.query.id;
-      console.log('dogID', dogID)
-      Dog.query({
-        where: {
-          id: dogID
-        }
-      }).fetch().then(function(found) {
-        console.log(found)
-        var availability = found.isAvail;
-        if (availability === '<Buffer 66 61 6c 73 65>') {
-          res.send("is NOT currently being fetched")
-        } else if ((availability === false) || (availability === 0)) {
-          res.send("is currently being fetched!")
-        }else{
-          res.send('i cant fix this stupid buffer')
-        }
-      })
-    });
+app.post('/loadDogs', function(req, res) {
+  Dog.fetchAll()
+    .then(function(dogs) {
+      var dogModels = dogs.models
+      var result = [];
+      for (var i = 0; i < dogs.models.length; i++) {
+        result.push(dogs.models[i].attributes)
+      }
+      console.log(result)
+      res.send(result)
+    })
+})
 
-      app.post('/loadDogs', function(req, res) {
-        Dog.fetchAll()
-          .then(function(dogs) {
-            var dogModels = dogs.models
-            var result = [];
-            for (var i = 0; i < dogs.models.length; i++) {
-              result.push(dogs.models[i].attributes)
-            }
-            res.send(result)
-          })
-      })
-
-      app.get('/logout', function(req, res) {
-        delete req.session.userid;
-        res.send('login');
-      });
+app.get('/logout', function(req, res) {
+  delete req.session.userid;
+  res.send('login');
+});
