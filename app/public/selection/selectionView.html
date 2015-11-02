@@ -1,37 +1,78 @@
 <!-- TODO: add ng-mouseover and ng-show directives on each of these -->
 <div ng-controller="SelectionController">
-    <div class="selectionContainer">
+    <div class="container">
+
         <div class="row">
+            <div class="col-lg-1"></div>
 
-            <div class="col-sm-3" ng-click="processSelection('Friend')" ng-mouseover="friendHover=true" ng-mouseleave="friendHover=false">
-                <h2>FetchFRIEND</h2>
-                <img class='select' src='http://justcuteanimals.com/wp-content/uploads/2014/11/happy-puppy-pictures-smile-cute-animals-dogs-pics.jpg'>
+            <div class="col-lg-4">
+                <div class="media" ng-mouseover="friendHover=true" ng-mouseleave="friendHover=false">
+                    <div class="colPad">
+                        <img ng-click="processSelection('Friend')" class="media__image" src="http://www.serviceanimalassociation.org/wp-content/uploads/2013/09/Service-Dog.jpg">
 
-                 <p ng-show="friendHover">Borrow a clean, cheerful companion, ready to hang out and keep you company, stroll around, or just sit in your lap.</p>
-
-                <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Friend')">Fetch Me</button>
+                        <div class="overlay friend" ng-show="friendHover">
+                            <h2>FetchFRIEND</h2>
+                            </br>
+                            <p>Borrow a clean, cheerful companion, ready to hang out and keep you company, stroll around, or just sit in your lap.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-sm-3" ng-click="processSelection('Family')" ng-mouseover="familyHover=true" ng-mouseleave="familyHover=false">
-                <h2>FetchFAMILY</h2>
-                <img class='select' src='http://static4.shop033.com/resources/18/160536/picture/7B/85918843.jpg'>
-                   <p ng-show="familyHover">This calm, careful pooch loves kids and gets along great at family picnics and afterschool birthday parties!</p>
-                <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Family')">Fetch Me</button>
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-4">
+            <div class="media" ng-mouseover="familyHover=true" ng-mouseleave="familyHover=false">
+                <div class="colPad">
+                    <img ng-click="processSelection('Family')" class="media__image" src="http://guidetopetnutrition.com/wp-content/uploads/2012/09/boy-and-dog.jpg">
+                    <div class="overlay family" ng-show="familyHover">
+                        <h2>FetchFAMILY</h2>
+                        </br>
+                        <p>This calm, careful pooch loves kids and gets along great at family picnics and afterschool birthday parties!</p>
+                    </div>
+                </div>
+            </div>
             </div>
 
-            <div class="col-sm-3" ng-click="processSelection('Fit')" ng-mouseover="fitHover=true" ng-mouseleave="fitHover=false" >
-                <h2>FetchFIT</h2>
-                <img class='select' src='http://c.photoshelter.com/img-get/I0000K.K0YPa18a4/s/710/east-sooke-hiking-dog-0096.jpg'>
-                 <p ng-show="fitHover">Strong fast running companions will cheer you on and keep you moving! They're excited to explore for hours, and a great way to keep up the pace on the trail!</p>
-                <button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Fit')">Fetch Me</button>
+            <div class="col-lg-2">
+            </div>
+        </div>
+
+        <div class="row" style="height: 30px;"></div>
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-4">
+                <div class="media" ng-mouseover="fitHover=true" ng-mouseleave="fitHover=false">
+                    <div class="colPad">
+                        <img ng-click="processSelection('Fit')" class="media__image" src="http://healthyliving.azcentral.com/DM-Resize/photos.demandstudios.com/getty/article/178/75/86533568.jpg?w=560&h=560&crop_min=1&webp=1">
+                        <div class="overlay fit" ng-show="fitHover">
+                            <h2>FetchFIT</h2>
+                            </br>
+                            <p>Strong fast running companions will cheer you on and keep you moving! They're excited to explore for hours, and a great way to keep up the pace on the trail!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-sm-3" ng-click="processSelection('Force')" ng-mouseover="forceHover=true" ng-mouseleave="forceHover=false">
-                <h2>FetchFORCE</h2>
-                <img class='select' src='https://s3.amazonaws.com/cms-biglife/files/photos/839/images/large.jpeg?1369008408'>
-                <p ng-show="forceHover">Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.<p>
-                <div><button type="submit" class="btn btn-default fetchMe" ng-click="processSelection('Force')">Fetch Me</button></div>
+            <div class="col-lg-1"></div>
+    
+            <div class="col-lg-4"> 
+                <div class="media" ng-mouseover="forceHover=true" ng-mouseleave="forceHover=false">
+                    <div class="colPad">
+                    <img ng-click="processSelection('Force')" class="media__image" src="http://www.priority1canine.com/images/dogs/available-dogs/Bree/organized/bree-Square.jpg">
+                    <div class="overlay force" ng-show="forceHover">
+                        <h2>FetchFORCE</h2>
+                        </br>
+                        <p>Want to take a long, late night walk, but have some solid company? Our force dogs are perfectly trained to stay by your side and keep you safe.<p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <div class="col-lg-2"></div>
+
         </div>
     </div>
 </div>
