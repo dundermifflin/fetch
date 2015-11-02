@@ -16,18 +16,22 @@
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-</div>
 <!-- /.container-fluid -->
-</nav>
-    <div class="container">
+  </nav>
 
+    <div class="container" style="margin-top: 45px;">
         <div class="row">
+        <div class="row" style="margin-bottom: 5px;">
+            <h1 class="text-center">Choose an Activity</h1>
+        </div>
+
+
             <div class="col-lg-1"></div>
 
             <div class="col-lg-4">
                 <div class="media" ng-mouseover="friendHover=true" ng-mouseleave="friendHover=false">
-                    <div class="colPad">
-                        <img ng-click="processSelection('Friend')" class="media__image" src="http://www.serviceanimalassociation.org/wp-content/uploads/2013/09/Service-Dog.jpg">
+                    <div class="colPad" ng-click="processSelection('Friend')">
+                        <img class="media__image" src="http://www.serviceanimalassociation.org/wp-content/uploads/2013/09/Service-Dog.jpg">
 
                         <div class="overlay friend" ng-show="friendHover">
                             <h2>FetchFRIEND</h2>
@@ -42,8 +46,8 @@
 
             <div class="col-lg-4">
             <div class="media" ng-mouseover="familyHover=true" ng-mouseleave="familyHover=false">
-                <div class="colPad">
-                    <img ng-click="processSelection('Family')" class="media__image" src="http://guidetopetnutrition.com/wp-content/uploads/2012/09/boy-and-dog.jpg">
+                <div class="colPad" ng-click="processSelection('Family')">
+                    <img class="media__image" src="http://guidetopetnutrition.com/wp-content/uploads/2012/09/boy-and-dog.jpg">
                     <div class="overlay family" ng-show="familyHover">
                         <h2>FetchFAMILY</h2>
                         </br>
@@ -64,8 +68,8 @@
 
             <div class="col-lg-4">
                 <div class="media" ng-mouseover="fitHover=true" ng-mouseleave="fitHover=false">
-                    <div class="colPad">
-                        <img ng-click="processSelection('Fit')" class="media__image" src="http://healthyliving.azcentral.com/DM-Resize/photos.demandstudios.com/getty/article/178/75/86533568.jpg?w=560&h=560&crop_min=1&webp=1">
+                    <div class="colPad" ng-click="processSelection('Fit')">
+                        <img class="media__image" src="http://healthyliving.azcentral.com/DM-Resize/photos.demandstudios.com/getty/article/178/75/86533568.jpg?w=560&h=560&crop_min=1&webp=1">
                         <div class="overlay fit" ng-show="fitHover">
                             <h2>FetchFIT</h2>
                             </br>
@@ -79,8 +83,8 @@
     
             <div class="col-lg-4"> 
                 <div class="media" ng-mouseover="forceHover=true" ng-mouseleave="forceHover=false">
-                    <div class="colPad">
-                    <img ng-click="processSelection('Force')" class="media__image" src="http://www.priority1canine.com/images/dogs/available-dogs/Bree/organized/bree-Square.jpg">
+                    <div class="colPad" ng-click="processSelection('Force')">
+                    <img class="media__image" src="http://www.priority1canine.com/images/dogs/available-dogs/Bree/organized/bree-Square.jpg">
                     <div class="overlay force" ng-show="forceHover">
                         <h2>FetchFORCE</h2>
                         </br>
