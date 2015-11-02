@@ -1,27 +1,41 @@
 <div ng-controller="AuthorizationController">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-8">
-                <h1 id="loginSlogan"> Ready to fetch your furry friend?</h1>
-                <form name="userLoginForm" novalidate class="css-form" ng-submit="userLoginForm.$valid && login(user)">
-                    Email
-                    <input type="email" ng-model="user.email" name="email" required placeholder="js@gmail.com" />
-                    <span class="error" ng-show="userLoginForm.email.$touched && userLoginForm.email.$invalid">Please make sure your email is valid.</span>
-                    <br /> Password
-                    <input name="password" ng-model="user.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
-                    <span class="error" ng-show="userLoginForm.password.$error.minlength">Please enter a valid.</span>
-                    <br/>
-                    <input type="submit" class="btn btn-primary btn-xl" value="Login" ng-disabled="userLoginForm.$invalid">
-                    </button>
-                </form>
-                <div>Not a user yet?
-                    <a href="/#/userRegistration">Register
+  <div class="col-md-2"></div>
+    <div class="col-md-8">
+    <h1 id="loginSlogan" text-align="center"> Ready to fetch your furry friend?</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title">User Login
+          <span><i class="fa fa-paw"></i></span>
+          </h3>
+        </div>  
+          
+          <div class="panel-body">
+            <form name="userLoginForm" novalidate class="css-form form-horizontal row-border" ng-submit="userLoginForm.$valid && login(user)">
+              <div class="form-group">
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-6">
+                  <input type="email" ng-model="user.email" name="email" required placeholder="js@gmail.com" />
                 </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Password</label>
+                <div class="col-md-6">
+                  <input name="password" ng-model="user.password" id="password" type="password" title="Enter your password" required ng-maxlength="45" ng-minlength="8" placeholder="******">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-6">
+                  <input type="submit" class="btn btn-primary btn-xl" value="Login" ng-disabled="userLoginForm.$invalid">
+                </div>
+              </div>
+            </form>
+            <label class="col-md-2 control-label"></label>
+            <div>Not a user yet?
+              <a href="/#/userRegistration">Register
             </div>
-            <div class="col-md-1"></div>
-        </div>
-    </form>
-
-
+        </div>  
+      </div>
+      <img class='dogPhoto' src='https://themayhew.org/wp-content/uploads/2014/07/Transparent-Dog.png'>
+    </div>  
 </div>
