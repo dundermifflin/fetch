@@ -29,8 +29,7 @@
                 <div class="col-md-9">
                     <h3>{{dog.name}}</h3>
                     <h4>Your furry friend has been fetched {{dog.outings}} time(s)!</h4>
-                    <p>{{dog.blurb}}</p>
-                    <p ng-init='availability= checkAvail(dog.isAvail.data[0])'>Availability: {{availability}}</p>
+                    <p class="availability" ng-init='availability= checkAvail(dog.isAvail.data[0])'>Availability: {{availability}}</p>
                     <a class="btn btn-primary" ng-click="confirmReturn(dog.id)"> Confirm Return <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
