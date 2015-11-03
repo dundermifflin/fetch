@@ -1,23 +1,23 @@
   <div ng-controller="ShelterController">
     <div ng-controller="DogsController">
-    <div>
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <a class="navbar-brand brand" id="brand" href="#/login">Fetch</a>
-            <!--         <a href="#/login"><i class="fa fa-paw fa-2x"></i></a>
- -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#/addDog">Add A Dog</a>
-                    </li>
-                    <li>
-                        <a href="#/shelterDogs">View All Dogs</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+
+      <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+        <a class="navbar-brand brand" id="brand" href="#/login">Fetch</a>
+        <a href="#/login"><i class="fa fa-paw"></i></a>
+
+        <div class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="#/addDog">Add A Dog</a>
+              </li>
+              <li>
+                  <a href="#/shelterDogs">View All Dogs</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+
     <div id="shelterForm" class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
@@ -105,3 +105,4 @@
     <div class="col-md-2"></div>
     <button id="addDogButton" type="button" class="col-md-8 btn btn-success" ng-click="addDog(formData)">submit</button>
   </div>
+</div>
