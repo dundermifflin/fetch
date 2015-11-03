@@ -12,11 +12,24 @@ angular.module('fetch.services', [])
     })
   };
 
-
-
+  var estimatedTime = function(long, lat) {
+    console.log('in estimated time service')
+    return $http({
+      method: 'POST',
+      url: '/estimatedTime',
+      params: {
+        longitude: long,
+        latitude: lat
+      }
+    }).then(function(resp){
+      console.log('estimatedTimeData', resp)
+      return resp
+    })
+  };
 
   return {
-    processSelection: processSelection
+    processSelection: processSelection,
+    estimatedTime: estimatedTime
   };
 })
 
