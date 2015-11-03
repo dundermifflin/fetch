@@ -124,6 +124,7 @@ aside {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+    height: 45px;
 }
 
 .availability {
@@ -220,7 +221,8 @@ aside {
 }
 
 .btn.btn-primary:hover {
-    background-color: #FF9A7A;
+    background-color: #f05f40;
+    border-color: #f05f40;
 }
 
 header {
@@ -547,8 +549,11 @@ h3 {
     position: center;
 }
 
+
 .fa {
-    margin-top: 10px;
+    margin-top: 14px;
+    margin-left: -8px;
+    font-size: 20px;
 }
 
 .text {
