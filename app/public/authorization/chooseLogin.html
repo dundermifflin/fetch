@@ -2,17 +2,20 @@
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <a class="navbar-brand brand" id="brand" href="#/login">Fetch</a>
-<!--         <a href="#/login"><i class="fa fa-paw fa-2x"></i></a>
- -->        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a href="#/login"><i class="fa fa-paw"></i></a>
+        <div class="nav navbar-nav navbar-right">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" a ng-click="scrollTo('about')">About</a>
+                    <a class="page-scroll" ng-click="scrollTo('about')">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" a ng-click="scrollTo('services')">Services</a>
+                    <a class="page-scroll" ng-click="scrollTo('services')">Services</a>
                 </li>
                 <li>
-                    <a class="page-scroll" a ng-click="scrollTo('contact')">Contact</a>
+                    <a class="page-scroll" ng-click="scrollTo('contact')">Contact</a>
+                </li>
+                <li>
+                    <a class="page-scroll" ng-click="userRedirect()">Log In</a>
                 </li>
             </ul>
         </div>
@@ -24,9 +27,9 @@
     <div class="header-content">
         <div class="header-content-inner">
             <hr>
-            <h1>Your best friend- <br/> now on-demand.</h1>
+            <h1>Your new best friend <br/> now on-demand.</h1>
             <hr>
-            <a ng-click="scrollTo('about')" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            <a ng-click="scrollTo('about')" class="btn btn-primary btn-lg page-scroll">Find Out More</a>
         </div>
     </div>
 </header>
@@ -37,8 +40,8 @@
                 <h2 class="section-heading">What's our story?</h2>
                 <hr class="light">
                 <p class="text-faded">San Francisco is one of the most dog friendly cities in the country, but there are so many people who aren't allowed to have dogs or simply don't have the time or money. At the same time, there are hundreds of lovable pets waiting to find their forever home that need a friend. Fetch is bringing the two together!</p>
-                <a href="#" class="btn btn-default btn-xl" ng-click="userRedirect()">Ready to Fetch? Sign up now!</a>
-                <a href="#" class="btn btn-default btn-xl" ng-click="shelterRedirect()">Register your shelter today!</a>
+                <a href="#" class="btn btn-default btn-lg" ng-click="userRedirect()">Ready to Fetch? Sign up now!</a>
+                <a href="#" class="btn btn-default btn-lg" ng-click="shelterRedirect()">Register your shelter today!</a>
             </div>
         </div>
     </div>
