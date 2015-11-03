@@ -10,6 +10,11 @@ var Shelter = db.Shelter;
 var bcrypt = require('bcrypt');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+var Promise = require("bluebird");
+var request = Promise.promisify(require('request'));
+
+Promise.promisifyAll(request);
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -231,6 +236,27 @@ app.post('/shelterLogin', function(req, res) {
       }
     })
 });
+
+app.post('/estimatedTime', function(req, res) {
+  var eta;
+  console.log('in server eta')
+  console.log('req', req.query)
+  var longitude = req.query.longitude;
+  var latitude = req.query.latitude;
+  console.log('long:', longitude)
+  console.log('lat', latitude)
+  var url = 'https://maps.googleapis.com/maps/api/distancematrix/json?origins=' + longitude + ',' + latitude + '&destinations=37.772, -122.423'
+  console.log('URL', url)
+  request(url, function(err, res, body) {
+    console.log('in request')
+    if (err) {
+      console.log('ERROR!', err)
+    } else {
+      var result = JSON.parse(body)
+      return result.rows[0].elements[0].duration.text
+    }
+  })
+})
 
 app.post('/loadDogs', function(req, res) {
   Dog.fetchAll()
